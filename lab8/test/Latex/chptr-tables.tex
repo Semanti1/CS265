@@ -1,0 +1,208 @@
+
+\chapter{Tables}
+\label{tables} % So we can \ref{tables} later.
+
+I took this mostly from http://www.andy-roberts.net/writing/latex/tables .
+
+\section{Simple Tables}
+\label{simple}
+
+Introduce tables with the \emph{tabular} environment, describing columns.
+
+\begin{quote}
+	\texttt{ \textbackslash{}begin\{tabular\}\{ l c r \} }
+\end{quote}
+
+\begin{center}
+	\begin{tabular}{ l r }
+		l & left justified \\
+		c & centered \\
+		r & right justified \\
+	\end{tabular}
+\end{center}
+
+\subsection{Vertical Lines}
+
+Use the $\vert$ or $\Vert$ in the declaration for vertical separators.
+
+\begin{center}
+	\begin{tabular}{ l || r | }
+		l & left justified \\
+		c & centered \\
+		r & right justified \\
+	\end{tabular}
+\end{center}
+
+\subsection{Content of Tables}
+
+Cells in a record are separated by \texttt{\&} .  
+\textbackslash{}\textbackslash{} to start a new record.
+
+Finally, use \texttt{\textbackslash{}hline} to put horizontal lines in:
+
+\begin{center}
+	\begin{tabular}{ l | r | }
+		\hline 
+		l & left justified \\
+		\hline 
+		c & centered \\
+		\hline 
+		r & right justified \\
+		\hline 
+	\end{tabular}
+\end{center}
+
+
+\section{Wrapping Text}
+Sadly, \LaTeX doesn't wrap long lines in tables, by default.  It does
+provide 3 other column specifiers which take a width argument, in
+\texttt{pt}, \texttt{in}, \texttt{cm}, \texttt{mm}, or \texttt{em}:
+
+\begin{center}
+	\begin{tabular}{ | l | p{8cm} | }
+		\hline
+		Character & Meaning \\
+		\hline
+		\texttt{p\{$width$\}}
+			& Paragraph column with text aligned vertically at the top \\
+		\hline
+		\texttt{m\{$width$\}}
+			& Paragraph column with text vertically aligned in the middle (requires
+			array package) \\
+		\hline
+		\texttt{b\{$width$\}}
+			& Paragraph column with text vertically aligned at the bottom (requires
+			array package) \\
+		\hline
+	\end{tabular}
+\end{center}
+
+The declaration for this table looks like:
+
+\begin{quote}
+	\texttt{ \textbackslash{}begin\{tabular\}\{ $\vert$ l $\vert$ p\{8cm\} $\vert$ \} }
+\end{quote}
+
+So, you'll need to play around a little, get it to come out nice.  Or, there
+are packages already developed which'll do much of the work for you.
+
+\section{Aligning on the Radix}
+\label{radalign}
+
+Again, there are packages that'll do this for you.  But, we're here, so...
+
+\subsection{@-Expressions}
+\label{atexpr}
+
+Generally, the @ specifier takes a text argument, and a width specifier.
+When appended to a column, it supresses normal cell spacing, and inserts the
+text before each cell's contents.
+
+We're going to use it without any space, to just use the radix to join two
+columns of numbers (the integer and fractional parts).
+
+\subsection{Tables of Numbers}
+
+\begin{center}
+	\begin{tabular}{ r @{.} l }
+		123 & 456 \\
+		3&14159265358979\\
+		98765432 & 1 \\
+	\end{tabular}
+\end{center}
+
+
+\section{Spanning}
+\label{tablespan}
+
+\subsection{Cell Spanning Multiple Columns}
+
+In the data, place:
+
+\begin{quote}
+	\texttt{ \textbackslash{}multicolumn\{$numcols$\}\{$alignment$\}\{$contents$\} }
+\end{quote}
+
+, where $numcols$ is the number of subsequent columns (the width of this
+cell, in columns), $alignment$ is one of \texttt{l}, \texttt{c}, or
+\texttt{r} (maybe \texttt{p}?), with vertical separators, and, finally, the
+contents of the cell.
+
+\begin{center}
+	\begin{tabular}{|r|l|}
+		\hline
+		\multicolumn{2}{|c|}{Endless Summer} \\
+		\hline
+		LOA & 43'5" \\
+		\hline
+		LWL & 36'4" \\
+		\hline
+		Beam & 12'10" \\
+		\hline
+		Draught & 5'11" \\
+		\hline
+		Displacement & 19,620 lbs \\
+		\hline
+		Fuel (diesel) & 63 gal \\
+		\hline
+		H$_2$O & 153 gal \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsection{Cell Spanning Multiple Rows}
+
+A cell spanning multiple rows is introduced with:
+
+\begin{quote}
+	\texttt{ \textbackslash{}multirow\{$numrows$\}\{$width$\}\{$contents$\} }
+\end{quote}
+
+To use this, you'll need the \texttt{multirow} package:
+
+\begin{quote}
+	\texttt{ \textbackslash{}usepackage\{multirow\} }
+\end{quote}
+
+
+, where $width$ could be a fixed width, or just use \* for the natural
+width.
+
+\begin{center}
+	\begin{tabular}{|l|r|l|}
+		\hline
+		\multicolumn{3}{|c|}{Endless Summer} \\
+		\hline
+		\multirow{7}{*}{Specs}
+			& LOA & 43'5" \\
+			& LWL & 36'4" \\
+			& Beam & 12'10" \\
+			& Draught & 5'11" \\
+			& Displacement & 19,620 lbs \\
+			& Fuel (diesel) & 63 gal \\
+			& H$_2$O & 153 gal \\
+			\hline
+		\multirow{5}{*}{Accomodations}
+			& Cabins & 3 \\
+			& Double Berths & 4 \\
+			& Single Berths & 0 \\
+			& Heads & 2 \\
+			& Showers & 3 \\
+			\hline
+		\multirow{3}{*}{Rigging}
+			& Masts & 1 \\
+			\hline
+			& \multicolumn{2}{|l|}{Furling main} \\
+			& \multicolumn{2}{|l|}{Furling genoa} \\
+			\hline
+	\end{tabular}
+\end{center}
+
+Huh.  That \textbackslash{}hline went all the way through. I dunno.  Either
+choose a package to help you make tables, or try embedding a table in the
+table.
+
+\section{Don't know yet}
+\label{hold}
+
+Whistling.

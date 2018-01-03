@@ -1,0 +1,58 @@
+
+#include <stdio.h>
+
+/* swap:  interchange v[i] and v[j]. */
+void swap(int v[], int i, int j)
+{
+     int temp;
+
+     temp = v[i];
+     v[i] = v[j];
+     v[j] = temp;
+}
+
+
+/* quicksort: sort v[0]..v[n-1] into increasing order. */
+int quicksort(int v [], int l, int n, int size, int c)
+{
+     int i, last;
+		 int h = n+l-1;
+		 int rV;
+
+		 rV = ++c;
+
+     if (n <= 1)                         /* nothing to do */
+         return c;
+     swap(v,l,l+(rand()%n) );       /* move pivot element to v[0] */
+     last = l;
+     for (i = l+1; i <= h; i++)         /* partition */
+           if( v[i] < v[0] )
+               swap(v,++last, i);
+     swap(v, l, last);                 /* restore pivot */
+     rV = quicksort( v, l, last-l, size, rV );
+			 /* recursively sort each part. */
+     rV = quicksort(v, last+1, h-last, size, rV );
+
+		 printf( "%d:  low=%d, high=%d\t", c, l, h );
+		 for( i=0; i<size; ++i )
+			 printf( "%3d", v[i] );
+		 printf( "\n" );
+
+		 return rV;
+}
+
+
+int main()
+{
+	int i;
+	int a[] = { 23, 4, 8, 15, 16, 42, 7, 5, 1, 18 };
+
+	quicksort( a, 0, 10, 10, 0 );
+
+	printf( "\nAnd we finish with:\n\t" );
+	for( i=0; i<10; ++i )
+	 printf( "%d\t", a[i] );
+	printf( "\n" );
+
+	return 0;
+}

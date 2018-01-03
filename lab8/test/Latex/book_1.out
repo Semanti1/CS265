@@ -1,0 +1,38 @@
+\BOOKMARK [0][-]{chapter.1}{In a Galaxy, Far Far Away}{}
+\BOOKMARK [1][-]{section.1.1}{Notes}{chapter.1}
+\BOOKMARK [1][-]{section.1.2}{Heather Graham}{chapter.1}
+\BOOKMARK [1][-]{section.1.3}{Compiling}{chapter.1}
+\BOOKMARK [2][-]{subsection.1.3.1}{Compiler Warnings and Errors}{section.1.3}
+\BOOKMARK [0][-]{chapter.2}{Basics}{}
+\BOOKMARK [1][-]{section.2.1}{Hello, World}{chapter.2}
+\BOOKMARK [1][-]{section.2.2}{Modes}{chapter.2}
+\BOOKMARK [1][-]{section.2.3}{Metacharacters}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.3.1}{Braces for Grouping}{section.2.3}
+\BOOKMARK [2][-]{subsection.2.3.2}{Spaces}{section.2.3}
+\BOOKMARK [2][-]{subsection.2.3.3}{Quotes}{section.2.3}
+\BOOKMARK [2][-]{subsection.2.3.4}{Dashes and Hyphens}{section.2.3}
+\BOOKMARK [1][-]{section.2.4}{Special Characters}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.4.1}{Composition and Decoration}{section.2.4}
+\BOOKMARK [2][-]{subsection.2.4.2}{Other Defined Characters and Symbols}{section.2.4}
+\BOOKMARK [2][-]{subsection.2.4.3}{Common Symbols and Characters from Packages}{section.2.4}
+\BOOKMARK [2][-]{subsection.2.4.4}{Math Symbols}{section.2.4}
+\BOOKMARK [0][-]{chapter.3}{Math}{}
+\BOOKMARK [0][-]{chapter.4}{Tables}{}
+\BOOKMARK [1][-]{section.4.1}{Simple Tables}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.1.1}{Vertical Lines}{section.4.1}
+\BOOKMARK [2][-]{subsection.4.1.2}{Content of Tables}{section.4.1}
+\BOOKMARK [1][-]{section.4.2}{Wrapping Text}{chapter.4}
+\BOOKMARK [1][-]{section.4.3}{Aligning on the Radix}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.3.1}{@-Expressions}{section.4.3}
+\BOOKMARK [2][-]{subsection.4.3.2}{Tables of Numbers}{section.4.3}
+\BOOKMARK [1][-]{section.4.4}{Spanning}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.4.1}{Cell Spanning Multiple Columns}{section.4.4}
+\BOOKMARK [2][-]{subsection.4.4.2}{Cell Spanning Multiple Rows}{section.4.4}
+\BOOKMARK [1][-]{section.4.5}{Don't know yet}{chapter.4}
+\BOOKMARK [0][-]{chapter.5}{Embedding Code in Text}{}
+\BOOKMARK [1][-]{section.5.1}{Inlining Code in Text}{chapter.5}
+\BOOKMARK [2][-]{subsection.5.1.1}{ Define Your Own Command }{section.5.1}
+\BOOKMARK [1][-]{section.5.2}{ Blocks of code }{chapter.5}
+\BOOKMARK [2][-]{subsection.5.2.1}{ verbatim Environment }{section.5.2}
+\BOOKMARK [2][-]{subsection.5.2.2}{ The listings Package }{section.5.2}
+\BOOKMARK [2][-]{subsection.5.2.3}{Language Supported by listings}{section.5.2}

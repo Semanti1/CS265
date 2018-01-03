@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Language" content="en-us">
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta http-equiv="Expires" content="no-expire">
+	<meta name="Author" content="Vera Zaychik & Kurt Schmidt">
+	<meta name="Publisher" content="Drexel University">
+	<meta name="Copyright" content="">
+	<meta name="Keywords" content="Programming Techniques Unix">
+	<meta name="Description"
+		content="Lab for CS265 - Adv. Programming Techniques">
+	<meta name="Pagetype" content="Lab">
+	<meta name="Audience" content="All">
+	<link rel='shortcut icon' type='image/gif'
+		href='../../images/drexel.gif'></link>
+	<script language="JavaScript" src="../courseInfo.js"></script>
+	<script language="JavaScript" src="../Scripts/courseFormat.js"></script>
+	<title>Shell Scripting (Bash)</title>
+</head>
+
+<body text="#330099" link="#000066" vlink="#000066" alink="#ff0000"
+	background="../../images/blueTexture.jpeg">
+
+<h1> Lab 2 - bash scripts, more utilities </h1>
+
+<p> Okay, just follow along, questions will be denoted with a
+<b><font size="=1">Q</font></b>.  Fill in answers in a text file called
+<tt>lab2</tt>. </p>
+
+<ul>
+	<li> Make some appropriate subdirectory for this lab and go there </li>
+	<li> Copy needed files from ~kschmidt/public_html/CS265/Labs/Bash to your
+		lab directory </li>
+	<li> Look at (and run) eg.bash.  Many examples in there, of simple
+		utilities.  We'll get to control structures in a little bit </li>
+</ul>
+
+<h2> Some more utilities: </h2>
+
+<h3> find </h3>
+<ul>
+	<li> Type <tt>pushd ~/</tt> to go to your home directory </li>
+	<li> type <tt>find . -type f -mtime -2 -print</tt>
+		<p> <b><font size="+1">Q 1</font></b>: What is the output? </p>
+	</li>
+
+	<li> Create a subdirectory w/some files:
+		<ul>
+			<li> <tt>$ <b>mkdir tmp</b></tt> </li>
+			<li> <tt>$ <b>touch tmp/gotMe.bash</b></tt> </li>
+		</ul>
+	</li>
+
+	<li> 
+	<p> <b><font size="+1">Q 2</font></b>: What would the find command be
+	to find all files that end in <tt>.bash</tt>? </p> </li>
+
+	<li> Try it, until you get it right
+		<p> <b><font size="+1">Q 3</font></b>: What is the output? </p>
+	</li>
+
+	<li> Clean up that tmp directory </li>
+	<li> type <tt>popd</tt> to return to your lab directory </li>
+</ul>
+
+<h3> wc </h3>
+<ul>
+	<li> Use <tt>wc</tt> to find the number of characters, words, and lines
+		in <tt>breadIsDangerous.txt</tt>
+		<p> <b><font size="+1">Q 4</font></b>: What were the results? </p>
+		<p> <b><font size="+1">Q 5</font></b>: How could you use grep, wc (with
+		the -l option), and a pipe to find how many lines contain the string
+		"the"? </p>
+	</li>
+</ul>
+
+<h3> ispell </h3>
+
+<ul>
+	<li> Look at <tt>spellExample</tt> </li>
+	<li> type <tt>ispell -b spellExample</tt>, follow the prompts.
+	<li> Do a listing of the directory
+		<p> <b><font size="+1">Q 6</font></b>: What is different? </p>
+	</li>
+	<li> Look at <tt>spellExample</tt> again </li>
+	<li> type <tt>echo "An extra line" &gt;&gt; spellExample</tt> </li>
+</ul>
+
+<h3> diff </h3>
+
+<ul>
+	<li> type <tt>diff spellExample spellExample.bak</tt>
+		<p> <b><font size="+1">Q 7</font></b>: Explain the output </p>
+	</li>
+	<li> type <tt>diff spellExample spellExample</tt>
+		<p> <b><font size="+1">Q 8</font></b>: What did you see this time? </p>
+	</li>
+</ul>
+
+<h2> Using the return value </h2>
+
+<ul>
+	<li> type <tt>grep dough breadIsDangerous.txt</tt>
+	<li> type <tt>echo $?</tt> </li>
+	<li> type <tt>grep uniqueString breadIsDangerous.txt</tt> </li>
+	<li> type <tt>echo $?</tt> </li>
+	<li> type <tt>grep dough noSuchFile</tt> </li>
+	<li> type <tt>echo $?</tt>
+		<p> <b><font size="+1">Q 9</font></b>: Explain the different return
+			values (the man pages might help) </p>
+	</li>
+</ul>
+
+<h2> Scripting </h2>
+
+<ul>
+	<li> Take a look again at args.bash, eg.bash, and rv.bash </li>
+	<li> Run them, and understand each step of the way </li>
+	<li> Ask me if you don't </li>
+
+	<li> Write a script called <tt>count.bash</tt> that, for each file in the
+		working directory, prints the filename, the # of lines, and the # of
+		words to stdout, like this:
+		<blockquote><tt>breadIsDangerous.txt 73 431
+		<br>spellExample 5 21</tt></blockquote>
+		Do <b>not</b> use <tt>find</tt>
+
+		<p> <b><font size="+1">Q 10</font></b>:  Upload <tt>count.bash</tt> </p>
+	</li>
+
+	<li> Write a shell script that accepts two file extensions as command line
+		arguments and renames all files with the first extension within the
+		current working directory to have the second extension instead. 
+
+		<p> For example: </p>
+
+		<blockquote><tt>$ reextend .log .txt</tt></blockquote>
+
+		<p>Would cause <tt>install.log</tt> to be renamed to
+		<tt>install.txt</tt>, and </p>
+
+		<blockquote><tt>$ reextend A B</tt></blockquote>
+
+		<p>Would cause <tt>TADAA</tt> to be renamed to
+		<tt>TADAB</tt> .  It would also cause <tt>file.A</tt> to be renamed
+		<tt>file.B</tt> . </p>
+		
+		<p> The script should print out error messages as is appropriate if
+			there is any problem with the command line arguments. Test the script
+			with a range of different parameters, including incorrect parameters
+			or missing parameters.<br> <b>hint:</b>  See <b>Parameter
+			Expansion</b> in the bash man or info page. </p>
+
+		<p><b><font size="+1">Q 11</font></b>:  Call this script
+			<tt>reextend</tt>, and upload it w/your lab.</p>
+	</li>
+
+	<li> You just used your favorite ripper to get some songs off a bunch of
+		CDs that you legally purchased.  You set the output format, got the
+		bit-rate you wanted, but forgot to set the format for the filenames.
+		You ended up w/listings like this:
+
+		<blockquote><tt>Led Zeppelin - Over the Hills and Far
+				Away.mp3</tt></blockquote>
+
+		<p>, all in the same directory.  What you really wanted was to have the
+		songs in directories by artist, and just the song name for the filename:
+		</p>
+
+		<blockquote><tt>Led Zeppelin/Over the Hills and Far
+			Away.mp3</tt></blockquote>
+	
+		<p> So, write a script that looks in the current directory only for mp3
+		files, breaks the filename out into artist and song title, creates the
+		appropriate directory (if it doesn't already exist), removes the artist
+		and the first ' - ' from the filename, and moves it into the directory.
+		</p>
+
+		<p><b><font size="+1">Q 12</font></b>:  Call this script
+		<tt>organiseMusic</tt>, and upload it w/your lab.</p>
+	</li>
+</ul>
+
+<hr>
+<h2> Submission </h2>
+
+<ul>
+	<li> <tt><b>lab2</b></tt> &ndash; Your lab sheet </li>
+	<li> <tt><b>count.bash</b></tt> </li>
+	<li> <tt><b>reextend</b></tt> </li>
+	<li> <tt><b>organiseMusic</b></tt> </li>
+</ul>
+
+<!--
+<p> There's a <tt>Makefile</tt> in the lab directory that simply checks for
+existence of your bash scripts, and checks the syntax (see the <tt>-n</tt>
+option to bash).  A bunch of setup needs to be done to test your scripts.  I
+might throw it in later, but that would make things more complicated. </p>
+-->
+
+</body>
+</html>

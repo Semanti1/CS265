@@ -1,0 +1,38 @@
+\contentsline {chapter}{\numberline {1}In a Galaxy, Far Far Away}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Notes}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Heather Graham}{1}{section.1.2}
+\contentsline {section}{\numberline {1.3}Compiling}{1}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Compiler Warnings and Errors}{2}{subsection.1.3.1}
+\contentsline {chapter}{\numberline {2}Basics}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Hello, World}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}Modes}{4}{section.2.2}
+\contentsline {section}{\numberline {2.3}Metacharacters}{5}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Braces for Grouping}{5}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Spaces}{5}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Quotes}{6}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.4}Dashes and Hyphens}{6}{subsection.2.3.4}
+\contentsline {section}{\numberline {2.4}Special Characters}{6}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Composition and Decoration}{6}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Other Defined Characters and Symbols}{7}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}Common Symbols and Characters from Packages}{7}{subsection.2.4.3}
+\contentsline {subsection}{\numberline {2.4.4}Math Symbols}{8}{subsection.2.4.4}
+\contentsline {chapter}{\numberline {3}Math}{11}{chapter.3}
+\contentsline {chapter}{\numberline {4}Tables}{13}{chapter.4}
+\contentsline {section}{\numberline {4.1}Simple Tables}{13}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Vertical Lines}{13}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Content of Tables}{13}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Wrapping Text}{14}{section.4.2}
+\contentsline {section}{\numberline {4.3}Aligning on the Radix}{14}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}@-Expressions}{14}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Tables of Numbers}{14}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Spanning}{15}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Cell Spanning Multiple Columns}{15}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Cell Spanning Multiple Rows}{15}{subsection.4.4.2}
+\contentsline {section}{\numberline {4.5}Don't know yet}{16}{section.4.5}
+\contentsline {chapter}{\numberline {5}Embedding Code in Text}{17}{chapter.5}
+\contentsline {section}{\numberline {5.1}Inlining Code in Text}{17}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1} Define Your Own Command }{17}{subsection.5.1.1}
+\contentsline {section}{\numberline {5.2} Blocks of code }{17}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1} \texttt {verbatim} Environment }{17}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2} The \texttt {listings} Package }{18}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Language Supported by \texttt {listings}}{20}{subsection.5.2.3}

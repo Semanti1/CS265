@@ -1,0 +1,29 @@
+
+regexp lab:
+    using egrep
+1  'the'
+ 
+2  '\<the\>'
+
+3  '\<Just\>'
+ 
+4  '\<[Jj]ust\>'
+  
+5  '^[Jj]ust'
+ 
+6  '\<[bm]ad\>'
+ 
+7  '\<(d|br)eath\>'
+ 
+8  'you(,|.)?$'
+
+9  '^\s+'
+ 
+10 '^$'
+ 
+11 10
+
+Git Lab:
+
+1.git revert e7ef9fb99afe847e5c1d99c53b04284e04a6ba10 
+2. Git log will say that a deletion has occured. Also I cannot revert if I have not made a change in the first place.

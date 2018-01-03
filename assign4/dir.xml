@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<direntry>
+	<index>
+		<file>index.html</file>
+	</index>
+	<required>
+		<file>file2.1</file>
+		<file>file2.2</file>
+	</required>
+	<other>
+		<file>a1-top</file>
+		<file>genxml</file>
+		<file>genxml.awk</file>
+		<file>output.txt</file>
+		<file>parse.awk</file>
+		<file>README</file>
+	</other>
+</direntry>

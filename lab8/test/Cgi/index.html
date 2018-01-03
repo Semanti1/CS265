@@ -1,0 +1,118 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+	<meta http-equiv="Content-Language" content="en-us">
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta name="Author" content="Vera Zaychik & Kurt Schmidt">
+	<meta name="Publisher" content="Drexel University">
+	<meta name="Copyright" content="">
+	<meta name="Keywords" content="Programming Techniques Unix">
+	<meta name="Description"
+		content="Main page for CS265 - Adv. Programming Techniques">
+	<meta name="Pagetype" content="Instruction">
+	<meta name="Audience" content="All">
+	<link rel='shortcut icon' type='image/gif'
+		href='../../../images/drexel.gif'></link>
+	<script language="JavaScript" src="../../courseInfo.js"></script>
+	<script language="JavaScript" src="../../../Scripts/courseFormat.js"></script>
+	<title>CGI Lab</title>
+</head>
+
+<body text="#000099" link="#000066" vlink="#000066" alink="#FF0000"
+	background="../../../images/blueTexture.jpeg">
+
+<ul>
+
+<h1>CGI Lab</h1>
+
+<h2>Setup</h2>
+
+<p>Please see <a target='_blank'
+	href='../../../Ref/deptCgi.html'>this file on using
+	<tt>landsend</tt></a> for your cgi stuff...</p>
+
+<ul>
+	<li>Log into a CS Dept. machine</li>
+	<li>From this directory, <tt>~kschmidt/public_html/CS265/Labs/Cgi</tt>,
+		copy <tt>helloPost.html</tt> and <tt>hello.py</tt> to appropriate
+		subdirectories under your home.</li>
+	<li>Get them working.</li>
+	<li>Look at and understand the examples in my <tt>cgi-bin</tt> and
+		<tt>cgiEg</tt> directories.  Here is an index of these examples:
+		<blockquote><tt>
+			<a href='http://landsend.cs.drexel.edu/~kschmidt/cgiEg/'>
+				http://landsend.cs.drexel.edu/~kschmidt/cgiEg/</a>
+		</tt></blockquote>
+
+		<p><tt>recall.py</tt> is an example of a script which presents a blank
+		form, then calls itself to process the data.</p>
+	</li>
+</ul>
+
+<hr width='100%'>
+<h2>To do</h2>
+
+<p>Write a script to gather and validate information.</p>
+
+<p>The script will gather the following information:</p>
+
+	<ul>
+		<li>Name</li>
+		<li>Address:</li>
+			<ul>
+				<li>Street 1</li>
+				<li>Street 2</li>
+				<li>City</li>
+				<li>State</li>
+				<li>zip</li>
+			</ul>
+		<li>Phone #</li>
+	</ul>
+
+<p>The script will present a form, for this info.  The form will call the
+same script again, to validate the data.  The following must be filled in:</p>
+
+	<ul>
+		<li>Name</li>
+		<li>Street 1</li>
+		<li>City</li>
+		<li>State</li>
+		<li>Zip</li>
+		<li>Phone #</li>
+	</ul>
+
+<p>Further, the zip code must be in one of the 2 following forms:</p>
+
+	<ul>
+		<li><tt><i>ddddd</i></tt></li>
+		<li><tt><i>ddddd</i>-<i>dddd</i></tt></li>
+	</ul>
+
+<p>If any data doesn't check out the form is redisplayed with an error msg
+at the top, and w/the data that checked out still populating the appropriate
+fields.</p>
+
+<p>If all the data was okay, then simply write it back to the client in
+column format.</p>
+
+<hr>
+<h2>Misc</h2>
+
+<p>Generally, the form should have a nice layout, be simple, etc.  Painful
+or difficult forms will cost you some points.</p>
+
+<p>If you are color blind get a friend to help out, or research yourself.
+Do <b>not</b> torture me.</p>
+
+<p><b>Never</b> forget the <i>KISS principle</i></p>
+
+<hr>
+<h2>Submission</h2>
+
+<p>Create a file called <tt><b>info.cgi</b></tt> .  Place it in your
+<tt>cgi-bin</tt> directory, and make sure I can execute it from the Web (I
+can if you can).  Also, submit a copy via <strike>submit_cli</strike>Blackboard Learn.  The assignment ID is
+<b>L7</b>.</p>
+
+</body>
+</html>

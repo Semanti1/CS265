@@ -1,0 +1,8 @@
+My program works when the input database path is stored in an environmental variable called CDDB
+I used export to set it. Ex: export CDDB="sample.db"
+
+After running makefile using make command, the program is built. Now to run it it has to be used with one pof the 4 options: -l,-d-a-h as follows:
+
+./cddb -l
+
+The makefile has a clean target but since program is in python, there is no intermediate or resulting file to clean up

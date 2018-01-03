@@ -1,0 +1,270 @@
+#!/usr/bin/python2
+
+import sys
+import os
+from collections import defaultdict
+from optparse import OptionParser
+#parser = OptionParser()
+#parser.add_option("-l",action='store_true')
+#parser.set_defaults(num=5)
+#(options) = parser.parse_args()
+#f = open( os.environ['h'], "a+" )
+#print (os.environ['h'])
+d1=dict()
+d2=dict()
+artistref=2
+def listartists():
+		i=1
+                for k in sorted(d1.keys()):
+        	       print i,".",k
+                       i=i+1
+		artist =  raw_input( "Enter artist num or q to quit " )
+		artistref=artist
+		if artist=='q':
+			return
+		else:
+		        listalbum(int(artist))
+		#	artistref=(int(artist))
+def delartists():
+                i=1
+		#print f.readline()
+                for k in sorted(d1.keys()):
+                       print i,".",k
+                       i=i+1
+                artist =  raw_input( "Enter artist whose album to del or q to quit " )
+                artistref=artist
+                if artist=='q':
+                      return 1
+                else:
+			f=open( os.environ['CDDB'], "w" )
+                        delalbum(int(artist),f)
+
+def delalbum(artist,f):
+        #print d1[artist].get()
+#       artistref=artist
+        i=1
+        art=""
+#	outf=open("test3","w")
+	#outf.write("h")
+        for k in sorted(d1.keys()):
+                if i==artist:
+                        g=0
+                        m=1
+                        art=k
+                        d1[k]=sorted(d1[k])
+                        while g<len((d1[k])):
+                                print m,".",d1[k][g];
+                                g=g+1;
+                                m=m+1
+
+                i=i+1;
+        num = raw_input( "Enter num of album to del or a to return to artists " )
+        #print d1[art][num-1]
+        if num=='a':
+                delartists(f)
+        else:
+                num=int(num)
+#		d1[art].pop(num-1)
+		d2.pop((d1[art][num-1]))
+		d1[art].pop(num-1)
+		if len(d1[art])==0:
+			d1.pop(art)
+                #listSongs((d1[art][num-1]),artist)
+		#outf=open("testout","w+")
+		#line=f.readline()
+		#outf.write(line)
+		#while line:
+		#	if line==art:
+		#		line2=f.readline()
+		#		if line2==d1[art][num-1]:
+		#			line=f.readline()
+		#			while line not in ['\n', '\r\n']:
+		#				line=f.readline()
+		#			
+		#		else:
+		#		 	outf.write(line+"\n")
+		#			outf.write(line2+"\n")
+		#	outf.write(line+"\n")
+		#	line=fi.readline()
+
+		#	if l in ['\n', '\r\n']:
+#		for (c,d) in d1.items()
+#			f.write
+		wantdel=raw_input( "want to del more album from list?y/n")
+		if wantdel=='y':
+			delalbum(artist,f)
+		for (c,d) in d1.items():
+                        #outf.write(c+"\n")
+			q=0
+			while(q<len(d)):
+				f.write(c+"\n")
+				f.write(d[q]+"\n")
+				p=0
+				for (g,h) in d2.items():
+					if g==d[q]:
+						while p<len(d2[g]):
+							f.write(d2[g][p]+"\n")
+							p=p+1
+				q=q+1
+				f.write("\n")
+
+def listalbum(artist):
+	#print d1[artist].get()
+#	artistref=artist
+	i=1
+	art=""
+	for k in sorted(d1.keys()):
+		if i==artist:
+			g=0
+			m=1
+			art=k
+			d1[k]=sorted(d1[k])
+			while g<len((d1[k])):
+				print m,".",d1[k][g];
+				g=g+1;
+				m=m+1
+				
+		i=i+1;
+	num = raw_input( "Enter num of album or a to return to artists " )
+	#print d1[art][num-1]
+	if num=='a':
+		listartists()
+	else:
+		num=int(num)
+		listSongs((d1[art][num-1]),artist)
+def listSongs(num1,num2):
+	#i=1
+	for (k,v) in d2.items():
+           if k==num1:
+		 j=0
+                # print k
+                 while j<len(v):
+
+                                print v[j];
+                                j=j+1;
+#	   i=i+1
+	want = raw_input( "want to return to album list? y or n " )
+	if want=='y':
+		listalbum(num2)
+def addAlbum(t):
+	artistName= raw_input( "enter artist")
+	releaseDate= raw_input( "date")
+	albName= raw_input( "album name")
+	trackList=[]
+	a=raw_input("Enter tracklist and q to stop")
+	while(a!='q'):
+		trackList.append(a)
+		a=raw_input()
+	if d1.has_key(artistName)==False:
+		d1[artistName]=[]
+		d1[artistName].append(releaseDate+" "+albName)
+	else:
+		d1[artistName].append(releaseDate+" "+albName)
+	if d2.has_key(releaseDate+" "+albName)==False:
+		d2[releaseDate+albName]=trackList
+#	for (w,z) in d1.items():
+	t.write("\n")
+	t.write(artistName+"\n")
+	t.write(releaseDate+" "+albName+"\n")
+	d=0
+	while d<len(trackList):
+		t.write("-"+trackList[d]+"\n")
+		d=d+1;
+			
+def main():
+	f = open( os.environ['CDDB'], "a+" )  # open file for reading (default)
+
+        # get rid of leading/trailing whitespace (spaces, tabs, newlines)
+	l = f.readline()
+	#d1=dict();
+	#d2=dict();
+	#d2=None;
+	key=""
+	count=1
+	while l :
+        #l = l.strip()
+        	#print l
+		if l in ['\n', '\r\n']:
+			 count=0
+		elif count==1:
+			l=l.strip()
+			key=l
+			if d1.has_key(l)==False:
+			#d2=None
+				d1[l]=[]
+	#	else:
+	#		d1[l]=d2
+		elif count==2:
+	#	d2[l.split()[0]]=l.split()[1:];
+			l=l.strip()
+		#d2[s[0]]=l.split()[1:]
+			key2=l;
+			d1[key].append(l);
+			if d2.has_key(key2)==False:
+                        #d2=None
+                                d2[key2]=[]
+
+		#d1.setdefault(key, []).append(l)
+		else:
+			l=l.strip()
+			#if d2.has_key(key2)==False:
+                        #d2=None
+                         #       d1[key2]=[]
+		#	else
+			d2[key2].append(l);
+		count=count+1;	
+        	l = f.readline()
+
+     # get back to the beginning of the file
+	#addAlbum()
+#	print d1
+#	if sys.argv[1]=='-l':
+#		i=1
+#		for (k,v) in d1.items() :
+#			 print i,".",k
+#			 i=i+1
+	#if sys.argv[1]=='-l':
+	#if options=='-l':
+	#delartists()
+	#parser = OptionParser()
+	#parser.add_option("-l", action="callback", callback=listartists)
+	#parser.add_option("-d", action="callback", callback=delartists)	
+	#(options, args) = parser.parse_args()
+        if sys.argv[1]=='-l':
+		listartists()
+	elif sys.argv[1]=='-a':
+		addAlbum(f)
+	elif sys.argv[1]=='-d':
+		delartists()
+	elif sys.argv[1]=='-h':
+		print '-l: lists albums'+"\n"
+		print '-a:adds albums'+"\n"
+		print '-d:deletes albums'+"\n"
+		print '-h:help'+"\n"
+
+	else:
+           return
+	#listartists()
+	#else:
+	#	addAlbum()
+	#t=open('test1',"a")
+#	addAlbum(f)
+#	listalbum(1)
+#	listSongs('1966 Blonde on Blonde')
+#	for (k,v) in d2.items():
+#		 j=0
+#		 print k
+ #                while j<len(v):
+#				
+ #                               print v[j];
+  #                              j=j+1;
+	
+
+        # lines is a list of lines
+if __name__ == "__main__" :
+        main()
+
+
+
+
+

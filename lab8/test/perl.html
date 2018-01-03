@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Language" content="en-us">
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta content="Vera Zaychik &amp; Kurt Schmidt" name="Author">
+	<title>Lab 7 - Interfaces, Perl</title>
+</head>
+
+<body text="#330099" link="#000066" vlink="#000066" alink="#ff0000"
+	background="../../images/blueTexture.jpeg">
+
+<h1>Lab 7 - Interfaces & Perl</h1>
+
+<p>Okay, just follow along, questions will be denoted with a
+<b><font size="=1">Q</font></b>.  Fill in answers in a text file called
+<tt>lab7</tt>.</p>
+
+<ul>
+	<li>Make some appropriate subdirectory for this lab and go there</li>
+	<li>Copy ~kschmidt/CS265/Labs/DataStructures/lab.tgz to your lab directory
+		and unzip/untar it</li>
+</ul>
+
+<h2>Interfaces</h2>
+
+<p><b><font size="+1">Q 1</font></b> Describe what is meant by each of the
+following:</p>
+	<ol type='i'>
+		<li>Hide implementation details</li>
+		<li>Choose a small orthogonal set of primitives</li>
+		<li>Don't reach behind the user's back</li>
+		<li>Do the same thing the same way everywhere</li>
+	</ol>
+
+<h3>CSV implementation</h3>
+
+<p><b><font size="+1">Q 2</font></b> What are the problems w/the first
+implementation in C?</p>
+
+<p><b><font size="+1">Q 3</font></b> What things were improved upon in the
+first revision in C?</p>
+
+<p><b><font size="+1">Q 4</font></b> What problems does the first revision
+still have?  Can you parse 2 different CSV files at the same time?
+Explain.</p>
+
+<p><b><font size="+1">Q 5</font></b> Does the C++ implementation solve these
+problems?  What issues still remain?</p>
+
+<h2>Perl</h2>
+
+<p>Look over all .pl scripts in ~kschmidt/public_html/CS265/Labs/Perl
+	<table>
+		<tr>
+			<td><font size='+1'>intro.pl</font></td>
+			<td><font size='+1'>for, foreach, $_, ranges, quoting</font></td>
+		</tr>
+		<tr>
+			<td><font size='+1'>diamond.pl</font></td>
+			<td><font size='+1'>&lt;&gt;, $_, $ARGV, print, while</font></td>
+		</tr>
+		<tr>
+			<td><font size='+1'>parseCountries.pl</font></td>
+			<td><font size='+1'>for, foreach, slice, file I/O, split</font></td>
+		</tr>
+		<tr>
+			<td><font size='+1'>filterCountries.pl</font></td>
+			<td><font size='+1'>while, =~, split</font></td>
+		</tr>
+		<tr>
+			<td><font size='+1'>grep.pl</font></td>
+			<td><font size='+1'>while, =~</font></td>
+		</tr>
+		<tr>
+			<td><font size='+1'>sumRows.pl</font></td>
+			<td><font size='+1'>while, =~, split</font></td>
+		</tr>
+	</table>
+
+<p>Take the <tt>sample.html</tt> page, rename it to <tt>index.html</tt>, place
+	it in your ~/public_html directory, and fill it in.  Make sure protections
+	are sufficient to allow people to read it over the Web.
+<p>Write the following scripts, submit them to this lab:
+
+<dl>
+	<dt><tt>wc.pl</tt></dt>
+	<dd>Just counts the # of words and the # of lines in the named file(s)</dd>
+	<dd>Look at diamond.pl and sumRows.pl.  Count lines.  For each line,
+		split it into an array, and you already know how to find out how many
+		things are in an array.  2 running totals.  :/</dd>
+	
+	<dt><tt>pay.pl</tt></dt>
+	<dd>Look at the input file employees.  It lists a name, an hourly pay
+		rate (USD), and the number of hours worked this week, separated by
+		spaces</dd>
+	<dd>Write a Perl Script that will read the file.  For each person who
+		actually worked, print out the name and the pay for the week.  Hours
+		past 40 are paid at 1.5 times their hourly rate</dd>
+</dl>
+
+
+</body>
+</html>

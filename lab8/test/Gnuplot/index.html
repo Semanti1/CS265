@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<atem http-equiv="Content-Language" content="en-us">
+	<atem http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<atem content="Kurt Schmidt &amp; Vera Zaychik" name="Author">
+	<title>Gnuplot</title>
+</head>
+
+<body text="#330099" link="#000066" vlink="#000066" alink="#ff0000"
+	background="../../../images/blueTexture.jpeg">
+
+<h1> Using <tt>gnuplot</tt> </h1>
+
+<p> All right, <tt>gnuplot</tt> is a command-line utlity that will plot data
+and spit out the graph as a JPEG, GIF, PNG, even ASCII. </p>
+
+<p> Consider the file <a href='data'>data</a>: </p>
+
+<iframe src='./data'/ style='font-family:monospace;' width='80%'>
+<p> Your browser does not support iframes. </p>
+</iframe>
+
+<p> The first column is the independent variable, and the next 2 columns
+represent 2 different columns. </p>
+
+<p> We can use <tt>gnuplot</tt> interactively: </p>
+
+<iframe src='./interactive.script'/ style='font-family:monospace;' width='80%'>
+<p> Your browser does not support iframes. </p>
+</iframe>
+
+<p> Here is the resulting graph, <a href='plot.png'>plot.png</a>: </p>
+
+<img src='./plot.png'>
+
+<p> This process can be automated.  Consider this input file, <a
+href='./plot-instructions'>plot-instructions</a> : </p>
+
+<iframe src='./plot-instructions'/ style='font-family:monospace;' width='80%'>
+<p> Your browser does not support iframes. </p>
+</iframe>
+
+<p> Invoke <tt>gnuplot</tt> this way: </p>
+
+<div><code>
+  $ gnuplot &lt; plot-instructions
+</code></div>
+
+</body>
+</html>

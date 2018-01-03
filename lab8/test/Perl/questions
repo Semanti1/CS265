@@ -1,0 +1,16 @@
+2.1	Write a program that computes the circumference of a circle with radius
+12.5.  Use $pi = 3.141592654
+
+2.2	Modify the previous program to prompt and read the radius
+
+2.3	Modify the previous program so that if the radius is less than zero, the
+circumference is set to zero.
+
+2.4	Write a program that prompts for and reads two numbers, on separate
+lines, and prints their product.
+
+2.5	Write a program that prompts for and reads a string and a number (on
+separate lines) and prints the string the number of times indicated by the
+number (on separate lines).
+
+

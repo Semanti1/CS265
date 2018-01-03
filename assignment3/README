@@ -1,0 +1,8 @@
+In PhoneDict.java ,  the name of input file is read in from environment variable ACMIA_WORDS. For each word in input file, the corresponding code is generated, and (code ,word) pairs are stored.
+
+While decoding each line from standard input:
+
+1. If blank line is entered , then execution is continued.(Since there is nothing to decode here)
+2. If all numbers entered in the code is 0, a blank line is printed. Since leading and trailing zeros are to be ignored, if everything is zero everything is ignored and empty line left.
+3. If the numeric code entered is valid(consists of all numbers) then the rules for decoding given in instructions are followed.
+4. Program exits only when CTRL+D is pressed or an invalid input is given.

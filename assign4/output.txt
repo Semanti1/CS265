@@ -1,0 +1,3 @@
+index index.html
+required file2.1
+required file2.2

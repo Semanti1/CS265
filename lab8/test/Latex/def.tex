@@ -1,0 +1,13 @@
+\documentclass{article}
+\long\def\aPieceOfCode{%
+  This is a Piece of code that I need to type out in a number of ways.
+	  First pick the contents from the CMS and store it in macro. Then call
+		them through your typesetter macros and hey it can even display maths
+		\formula\ without the use of JavaScript!
+}
+\def\formula{$a=b^2+23 $}
+\def\displayMyCode#1{#1}
+
+\begin{document}
+\displayMyCode{\aPieceOfCode}
+\end{document}

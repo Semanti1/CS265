@@ -1,0 +1,251 @@
+
+\chapter{Embedding Code in Text}
+\label{embeddingcode} 
+
+\section{Inlining Code in Text}
+\label{inlinecode}
+
+Use the  \texttt{ \textbackslash{}texttt\{\textit{code}\} } to inline a bit of code
+in a paragraph.
+
+You'll need to change text colors yourself.
+
+\subsection{ Define Your Own Command }
+
+You can define your own:
+
+\begin{quote}
+	\texttt{
+		\textbackslash{}newcommand\{\textbackslash{}code\}[1]\{\textbackslash{}texttt\{\#1\}\}
+	}
+\end{quote}
+
+\newcommand{\code}[1]{\texttt{#1}}
+
+So you could then use the new command in-line 
+\texttt{ \textbackslash{}code\{\textit{code}\} }
+
+Honestly, not sure about this yet.  We'll get there.
+
+
+\section{ Blocks of code }
+\label{codeblock}
+
+\subsection{ \texttt{verbatim} Environment }
+\label{verbatim}
+
+You can place a code block in a \texttt{verbatim} environment.  It seems that
+all (most? many?) metacharacter behaviors are inhibited, and line breaks are
+preserved.  I'm not so sure about leading white space.
+
+\texttt{
+	\textbackslash{}begin\{verbatim\}
+		...
+	\textbackslash{}end\{verbatim\}
+}
+
+Let's see how this looks:
+
+\begin{verbatim}
+   #include <stdio.h>
+
+   char *name = "Kurt" ;
+
+   int main( int argc, char *argv[] )
+   {
+      printf( "Hello, %s!\n", name ) ;
+
+      return( 0 ) ;
+   }  /* main */
+\end{verbatim}
+
+Hmmm.  Okay.  Moving on...
+
+
+\subsection{ The \texttt{listings} Package }
+\label{ listingspkg }
+
+The \texttt{listings} package is part of \LaTeX{}'s standard library, I
+believe.  It knows many languages (I hope), converts tabs to spaces you specify,
+and, with the \texttt{color} package, will highlight literals, keywords,
+comments, etc.  I do not yet know if you can define your own languages.
+
+Here is an example, found on StackOverflow (see comment):
+
+% This was ganked from
+% http://stackoverflow.com/questions/3175105/how-to-insert-code-into-a-latex-doc
+
+\begin{quote}
+	\begin{verbatim}
+   \usepackage{listings}
+   \usepackage{color}
+
+   \definecolor{dkgreen}{rgb}{0,0.6,0}
+   \definecolor{gray}{rgb}{0.5,0.5,0.5}
+   \definecolor{dkred}{rgb}{1, 0.6, 0.6}
+
+   \lstset{frame=tb,
+      language=C,
+      aboveskip=3mm,
+      belowskip=3mm,
+      showstringspaces=false,
+      columns=flexible,
+      basicstyle={\small\ttfamily},
+      numbers=none,
+      numberstyle=\tiny\color{blue},
+      keywordstyle=\color{dkgreen},
+      commentstyle=\color{gray},
+      stringstyle=\color{dkred},
+      breaklines=true,
+      breakatwhitespace=true,
+      tabsize=3
+   }
+	\end{verbatim}
+\end{quote}
+
+You can, of course, define and use whichever colors you like.  Change default
+language in the middle of document with
+\texttt{\textbackslash{}lstset\{language=\textit{lang} \} } .
+
+Then place your code in a \texttt{lstlisting} environment.  Let's see if we can
+make our previous example better:
+
+
+\begin{lstlisting}
+	#include <stdio.h>
+
+	char *name = "Kurt" ;
+
+	int main( int argc, char *argv[] )
+	{
+		printf( "Hello, %s!\n", name ) ;
+
+		return( 0 ) ;
+	}  /* main */
+\end{lstlisting}
+
+You can even pull code right from a file, using
+
+\begin{quote}
+	\texttt{ \textbackslash{}lstinputlisting[language=Python]\{hello.py\} }
+\end{quote}
+
+%\lstset{language=Python}
+%\lstinputlisting{hello.py}
+\lstinputlisting[language=Python]{hello.py}
+
+Nice.  Let's see if this is a better way to embed LaTeX.  There's a
+\texttt{TeX} language listed.
+
+\begin{lstlisting}[language=TeX]
+You can even pull code right from a file, using \texttt{lstinputlisting}
+
+	\lstinputlisting[language=Python]{hello.py}
+
+So, I suppose this is for indented math expressions (note the super and
+subscripts in math mode)
+
+	\[ |f(y) - f(x)| < \epsilon \]
+	\[ p_{i} = p_{i-1}^2 \]
+
+\end{lstlisting}
+
+Not exciting, but it works.
+
+
+\subsection{Language Supported by \texttt{listings}}
+
+This is according to \url{%
+http://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings#Supported_languages
+} .  I don't see a date, know how current it is.
+
+\begin{multicols}{4}
+	\begin{itemize}
+	\renewcommand{\labelitemi}{ }
+		\item ABAP
+		\item ACSL
+		\item Ada
+		\item Algol
+		\item Ant
+		\item Assembler
+		\item Awk
+		\item bash
+		\item Basic
+		\item C
+		\item C++
+		\item Caml
+		\item Clean
+		\item Cobol
+		\item Comal
+		\item csh
+		\item Delphi
+		\item Eiffel
+		\item Elan
+		\item erlang
+		\item Euphoria
+		\item Fortran
+		\item GCL
+		\item Gnuplot
+		\item Haskell
+		\item HTML
+		\item IDL
+		\item inform
+		\item Java
+		\item JVMIS
+		\item ksh
+		\item Lisp
+		\item Logo
+		\item make
+		\item Mathematica
+		\item Matlab
+		\item Mercury
+		\item MetaPost
+		\item Miranda
+		\item Mizar
+		\item ML
+		\item Modelica
+		\item Modula-2
+		\item MuPAD
+		\item NASTRAN
+		\item Oberon-2
+		\item OCL
+		\item Octave
+		\item Oz
+		\item Pascal
+		\item Perl
+		\item PHP
+		\item Plasm
+		\item PL/I
+		\item POV
+		\item Prolog
+		\item Promela
+		\item Python
+		\item R
+		\item Reduce
+		\item Rexx
+		\item RSL
+		\item Ruby
+		\item S
+		\item SAS
+		\item Scilab
+		\item sh
+		\item SHELXL
+		\item Simula
+		\item SQL
+		\item tcl
+		\item TeX
+		\item VBScript
+		\item Verilog
+		\item VHDL
+		\item VRML
+		\item XML
+		\item XSLT
+	\end{itemize}
+\end{multicols}
+
+Take a peek at the link, above, there are notes I didn't bother with.
+Various dialects of some of the languages are understood.
+
+I was feelin' pretty good about the number of languages I'm familiar with,
+'til I saw this list.  I've not even heard of some of these.
+

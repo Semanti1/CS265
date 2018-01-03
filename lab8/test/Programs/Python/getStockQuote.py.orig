@@ -1,0 +1,65 @@
+#!/usr/bin/python
+#
+#	getStockQuote.py - Hits Yahoo! for a current stock quote, given a stock
+#		symbol
+#
+# Kurt Schmidt
+# June '06
+#
+# Would like to thank voidspace.org.uk, from whence I took most of this code
+#		(to be fair, they used exceptions, cookies, etc.  In short, did a much
+#		nicer job than is seen here).
+#
+# DEMONSTRATES: 
+
+import urllib2
+
+sampleSymbols = ( "DIS", "HSY", "NoSuchSymbol" ) 
+infoFmt = "sl1d1t1c1ohgv"
+	# formate returns:
+	# 	symbol, latest, date, time, var, open, max, min, volume
+
+def getQuote( symbol ) :
+
+	url = \
+		"http://finance.yahoo.com/d/quotes.csv?s=" \
+		+ symbol + "&f=" + infoFmt + "&e=.csv"
+
+	txdata = None
+	# if we were making a POST type request,
+	# we could encode a dictionary of values here,
+	# using urllib.urlencode(somedict)
+
+	txheaders =  { 'User-agent' : \
+		'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)' }
+
+	req = Request( theurl, txdata, txheaders )
+		# create a request object
+
+	handle = urlopen( req )
+
+	return req
+
+
+# --------- Program starts here -------------
+
+for s in sampleSymbols :
+	request = getQuote( s )
+
+	if( defined $response )
+	{
+		# test, in here, for N/A in one of the appropriate fields
+		print "Data for $_:\n\t$response\n";
+	}
+	else
+	{
+		print "Bad URL!\n";
+	}
+}
+
+# Here's an example of a bad URL
+
+my $badUrl = "http://not.a.website";
+my $response = get( $badUrl );
+
+print "Got no response from $badUrl !\n\n" unless defined $response;

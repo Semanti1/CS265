@@ -1,0 +1,19 @@
+{ "Bay Poet":
+		[
+			{ "name":"Sleepy O'Donogal", "pos":"cook", "address":
+				{ "street":"123 Galley St", "city":"Hidden Harbor" } },
+			{ "name":"Laughng Carlos", "pos":"skipper", "address":
+				{ "street":"678 Shroud Path", "city":"Bouncy Bay" } },
+			{ "name":"Featherless Fred", "pos":"ABS", "address":
+				{ "street":"543 Anchor Ave", "city":"Salmon Meadow" } }
+		] ,
+	"Into the Mystic":
+		[
+			{ "name":"Graham the Beard", "pos":"skipper", "address":
+				{ "street":"468 Wavy Way", "city":"Pirate's Ridge" } },
+			{ "name":"Whacky Liam", "pos":"cook", "address":
+				{ "street":"357 Cock's Coam", "city":"Halyard Haven" } },
+			{ "name":"Belching Bobby", "pos":"ABS", "address":
+				{ "street":"468 Wavy Way", "city":"Pirate's Ridge" } }
+		] 
+}

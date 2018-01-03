@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>CS265 - Perl</title>
+</head>
+<body>
+
+<h1>Perl (Practical Extraction and Reporting Language)</h1>
+
+<h2>Background:</h2>
+
+<ul>
+  <li>Larry Wall, 1987</li>
+  <li>Fill gap between compiled programs and scripts</li>
+  <li>Easily manipulate text, files, and processes</li>
+  <li>Faster than shells, slower than compiled programs</li>
+  <li>Replaces sed, awk, head</li>
+  <li>Available on Unix, PC, and Macintosh</li>
+  <li>Excellent regular expressions</li>
+  <li>Good for:</li>
+  <ul>
+    <li>All scripts</li>
+    <li>Parsing, validating, restructuring data files</li>
+    <li>CGI</li>
+  </ul>
+  <li>Bad for:</li>
+  <ul>
+    <li>CPU intensive apps</li>
+    <li>Device drivers</li>
+  </ul>
+</ul>
+<h2>Programming</h2>
+
+<h3>Comments</h3>
+
+Start w/a <tt>#</tt>, to end of line<br>
+
+<h3>Statements</h3>
+
+Much like C, end w/semicolon, braces, etc.<br>
+
+<h3>Data Types</h3>
+
+<ul>
+  <li>Only 2 types</li>
+  <li>Conversion happens (usually) automatically, when possible</li>
+  <li><tt>undef</tt> is a special literal; means null, undefined,
+whatever.</li>
+  <h4>Numeric</h4>
+  <ul>
+    <li>float and int the same; when an int is needed, a float will be
+truncated</li>
+    <li>E.g.,
+      <table>
+        <tbody>
+          <tr>
+            <td width="50%"><tt>3</tt></td>
+            <td><tt>&nbsp;</tt></td>
+          </tr>
+          <tr>
+            <td><tt>1_000_231</tt></td>
+            <td><tt># underscore for legibility</tt></td>
+          </tr>
+          <tr>
+            <td><tt>3.1415926535</tt></td>
+            <td><tt># Good #</tt></td>
+          </tr>
+          <tr>
+            <td><tt>3.14_15_92_65_35</tt></td>
+            <td><tt># legible</tt></td>
+          </tr>
+          <tr>
+            <td><tt>6.022094E23</tt></td>
+            <td><tt># nice big #. Recognise it?</tt></td>
+          </tr>
+          <tr>
+            <td><tt>0xff</tt></td>
+            <td><tt># hex #</tt></td>
+          </tr>
+          <tr>
+            <td><tt>0xdead_beef</tt></td>
+            <td><tt># more hex</tt></td>
+          </tr>
+          <tr>
+            <td><tt>07712</tt></td>
+            <td><tt># octal</tt></td>
+          </tr>
+          <tr>
+            <td><tt>0b10_0000_0001</tt></td>
+            <td><tt># binary (grouped in nibbles)</tt></td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+  </ul>
+
+  <h4>Strings</h4>
+
+  <ul>
+    <li>Much as in shells</li>
+    <li>Can be single-quoted or double-quoted</li>
+		<li>Double quoted strings subject to backslash and variable expansion</li>
+		<li>Single quoted strings inhibit behavior, except for <tt>\'</tt> and
+			<tt>\\</tt></li>
+    <li>Same backslashes as in C, plus many more</li>
+  </ul>
+  <br>
+	<li>Note: hex, binary, and octal representation stored in string literals
+		(e.g., <tt>'0xff'</tt>) are <b>not</b> converted to integers. See
+		<tt>hex()</tt> and <tt>octal()</tt></li>
+
+  <h4>A note on booleans</h4>
+
+  <ul>
+		<li>An expression is <tt><b>false</b></tt> if it is: undefined
+			(<tt>undef</tt>), numerically <tt>0</tt>, or <tt>0.0</tt>, or a null
+			string <tt>""</tt> or <tt>''</tt></li>
+		<li>Exception: The string literal <tt>"0"</tt> or <tt>'0'</tt> is also
+			<tt><b>false</b></tt></li>
+    <li>Everything else is <tt><b>true</b></tt></li>
+  </ul>
+</ul>
+
+<h3>Variables</h3>
+
+<ul>
+
+	<h4>Scalars</h4>
+	<h4>Arrays</h4>
+	<h4>Hashes</h4>
+	<h4>Slices, Lists</h4>
+
+</ul>
+
+<h3>Branching</h3>
+
+<h3>Loops</h3>
+
+<h3>File I/O</h3>
+
+<ul>
+	<h4>STDERR, STDOUT, STDIN...</h4>
+</ul>
+
+<h3>Regular Expressions</h3>
+
+<ul>
+	<h4>Simple matching</h4>
+	<blockquote>
+<pre>if( /foo/ ) { ... }	# true if $_ contains "foo"
+if( $a =~ /foo/ ) { ... } # true if $a contains "foo"</pre>
+	</blockquote>
+
+	<h4>Simple substitution</h4>
+	<blockquote>
+<pre>s/foo/bar/;	# replaces first (left-most) foo with bar in $_
+$a =~ s/foo/bar		# replaces first (left-most) foo with bar in $a
+$a =~ s/foo/bar/g;	# replaces <b>all</b> foo with bar in $a</pre>
+	</blockquote>
+
+	<table>
+		<tr>
+			<td colspan="2"><b>Patterns</b></td>
+		</tr>
+		<tr>
+			<td><tt>.</tt></td>
+			<td>single character</td>
+		</tr>
+		<tr>
+			<td><tt>\s</tt></td>
+			<td>whitespace character (space, tab, newline)</td>
+		</tr>
+		<tr>
+			<td><tt>\S</tt></td>
+			<td>non-whitspace character</td>
+		</tr>
+		<tr>
+			<td><tt>\d</tt></td>
+			<td>a digit (0-9)</td>
+		</tr>
+		<tr>
+			<td><tt>\D</tt></td>
+			<td>non-digit</td>
+		</tr>
+		<tr>
+			<td><tt>\w</tt></td>
+			<td>word character (a-z,A-Z,0-9,_)</td>
+		</tr>
+		<tr>
+			<td><tt>\W</tt></td>
+			<td>non-word character</td>
+		</tr>
+		<tr>
+			<td><tt>[aeiou]</tt></td>
+			<td>char. class - matches a single character from set</td>
+		</tr>
+		<tr>
+			<td><tt>[^aeiou]</tt></td>
+			<td>matches single character <i>not</i> in set</td>
+		</tr>
+		<tr>
+			<td><tt>(foo|bar|baz)</tt></td>
+			<td>matches any alternative</td>
+		</tr>
+		<tr>
+			<td><tt>^</tt></td>
+			<td>start of string (line)</td>
+		</tr>
+		<tr>
+			<td><tt>$</tt></td>
+			<td>end of string (line)</td>
+		</tr>
+		<tr>
+			<td colspan="2"><b>Quantifiers</b></td>
+		</tr>
+		<tr>
+			<td><tt>*</tt></td>
+			<td>zero or more of previous thing</td>
+		</tr>
+		<tr>
+			<td><tt>+</tt></td>
+			<td>one or more of previous thing</td>
+		</tr>
+		<tr>
+			<td><tt>?</tt></td>
+			<td>zero or one of the previous thing</td>
+		</tr>
+		<tr>
+			<td><tt>{3}</tt></td>
+			<td>exactly 3 of the previous thing</td>
+		</tr>
+		<tr>
+			<td><tt>{3,6}</tt></td>
+			<td>between 3 and 6 (inclusive) of the previous thing</td>
+		</tr>
+		<tr>
+			<td><tt>{3,}</tt></td>
+			<td>3 or more of the previous thing</td>
+		</tr>
+	</table>
+
+	<li>Parenthesis are used for grouping</li>
+	<li>Groups can be captured</li>
+</ul>
+
+</body>
+</html>

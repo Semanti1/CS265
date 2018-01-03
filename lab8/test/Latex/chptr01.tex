@@ -1,0 +1,105 @@
+
+\chapter{In a Galaxy, Far Far Away}
+\label{starwars} % So I can \ref{altrings} later.
+
+\section{Notes}
+\label{notes}
+%\input{chap1/sec11}
+
+I'm just working my way through \LaTeX.  I put some Latex code here, and as
+I gain proficiency, perhaps I'll put more.  For now, it would be helpful to
+look at the source, as you read the book.  They should be in the same
+directory.
+
+Note, if the margins look odd on alternate pages, this is a \texttt{book}
+document, meant to be bound.
+
+For a text, this style of paragraph indentation/spacing is not so ideal.
+I'll play later, but, for now, try playing with \texttt{
+\textbackslash{}setlength\{\textbackslash{}parindent\}[\textit{width}] } and
+\texttt{
+\textbackslash{}setlength\{\textbackslash{}parskip\}[\textit{width}] }
+
+Read up on \emph{rubber lengths}.  Also, be careful using \texttt{parskip}, as
+it affects spacing in lists and other places.  The \texttt{parskip} package
+might be helpful here.
+
+\section{Heather Graham}
+\label{graham}
+%\input{chap1/sec12}
+Talented, lovely.  And just gets more so.
+
+\section{Compiling}
+
+There should be a makefile in this directory, but I'm not at all happy with
+it.
+
+Also, I'm having issues using CYGWIN\_NT\-6.1 XXXXX 1.7.9(0.237/5/3)
+2011-03-29 10:10 i686 Cygwin.  Packages are missing, compilation is somehow
+more painful.  But, it's a pretty old install, so.  Ah, versions:
+
+\begin{verbatim}
+	$ latex --version
+	pdfeTeX 3.141592-1.21a-2.2 (Web2C 7.5.4)
+	kpathsea version 3.5.4
+\end{verbatim}
+
+Oh, did ya catch some approximation of $\pi$ in there?
+
+On tux, we have:
+
+\begin{verbatim}
+	$ latex --version
+	pdfTeX 3.1415926-1.40.10-2.2 (TeX Live 2009/Debian)
+	kpathsea version 5.0.0
+\end{verbatim}
+
+Much newer version, anyway.  I should maybe update this thing.
+
+Anyway, two ways I've been compiling TEX to PDF.  The first is two steps,
+TEX$\rightarrow$DVI, then DVI$\rightarrow$PDF:
+
+\begin{verbatim}
+	$ latex book.tex
+	...
+	$ dvipdf book.dvi
+	...
+\end{verbatim}
+
+The second way accomplishes the task in a single step:
+
+\begin{quote}
+	\texttt{
+		\$ pdflatex book.tex
+		...
+	}
+\end{quote}
+
+Hmmmm.  \texttt{pdflatex} isn't creating a table of contents for me on tux,
+either.  Oh!  Run it a couple times in succession.  \texttt{bibtex} might be
+in there somewhere.
+
+Also, \texttt{pdflatex} will allow you to use PDF-specific commands, and
+seems to be recommended.
+
+Note, if using references, indices, table of contents, etc., pay attention
+to the output.  A 2\textsuperscript{nd} run might be suggested.
+
+\subsection{Compiler Warnings and Errors}
+
+You'll see various informational warnings:
+
+\begin{quote}
+	\texttt{
+		LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
+		...
+	}
+\end{quote}
+
+You want to make sure that a correct substitution was made, but these are
+fairly harmless.
+
+Errors, of course, need to be corrected, and will leave you at an
+interactive prompt (until I figure out how to signal batchmode).  I find
+\bf{\texttt{x}} or \bf{\texttt{q}} to be helpful.
+

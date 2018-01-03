@@ -1,0 +1,33 @@
+<!--<?xml version="1.0" encoding="ISO-8859-1"?>-->
+
+
+<project default="run" basedir='.'>
+        <description>
+                 compile *and* run
+        </description>
+
+      <!--  <target name="run" depends='PhoneDict'/>-->
+
+        <target name="run" depends='compile'>
+                <java classname='PhoneDict'>
+                        <classpath>
+                                <pathelement path="${classpath}" />
+                                <pathelement location="." />
+                        </classpath>
+                        
+                </java>
+        </target>
+
+	<target name="compile">
+                <javac includeantruntime="false" srcdir='./' includes='PhoneDict.java'/>
+        </target>
+
+        <target name="clean">
+                <delete>
+                        <fileset dir="./">
+                                <include name='*.class'/>
+                        </fileset>
+                </delete>
+        </target>
+</project>
+

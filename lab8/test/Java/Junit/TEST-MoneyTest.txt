@@ -1,0 +1,8 @@
+Testsuite: MoneyTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.059 sec
+
+Testcase: testAdd took 0.002 sec
+Testcase: testConvert took 0 sec
+	SKIPPED: Feature not implemented yet
+Testcase: testEquals took 0 sec
+Testcase: crashAdd took 0 sec

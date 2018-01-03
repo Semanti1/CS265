@@ -1,0 +1,11 @@
+"LU",86.25,"11/4/1998","2:19PM",+4.0625
+"Student, Good",CS265,"Advanced Programming Tools and Techniques",A
+"Bad Student",CS265,"Advanced Programming Tools and Techniques",D
+"Here's an empty",,"field",""
+" here is leading","and trailing ws "
+He said,"""Virgil, quick come see""",18
+25, "this, that",end
+35,89,90
+"Semanti, Basu",ECE Major,96
+"He said, ""What?!!""",testing,"",,""
+""",,"""

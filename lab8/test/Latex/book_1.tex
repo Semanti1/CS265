@@ -1,0 +1,74 @@
+%
+\documentclass[11pt]{book}
+%\pagestyle{plain}
+\usepackage{makeidx}
+%\usepackage{graphicx}
+
+\usepackage{multirow} % Needed for cells in tables that span rows
+\usepackage{listings} % for \lstset , listing code (chptr-code-listing)
+\usepackage{color}   % make code pretty
+\usepackage{multicol} % for a multi-column list
+\usepackage{hyperref} % for \url , \href , etc.
+\usepackage{framed} % for \framed
+%\usepackage{pdfpages} % for \includepdf
+
+%?? - Huh?  Can't get \k{} sequence
+%\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+
+%------- lstsetlisting settings  -------------
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{dkred}{rgb}{0.8, 0, 0}
+\definecolor{seablue}{rgb}{0, 0.5, 1}
+
+\lstset{%
+  basicstyle={\small\ttfamily},
+	frame=single,
+  language=C,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  numbers=none,
+  numberstyle=\tiny\color{blue},
+	%identifierstyle=\color{seablue},
+  keywordstyle=\color{dkgreen},
+  commentstyle=\color{gray},
+  stringstyle=\color{dkred},
+  breaklines=false,
+	resetmargins=true,
+  %breakatwhitespace=true,
+  tabsize=3
+}
+
+
+%%%%%%  Top Matter  %%%%%%%%%%%%%%%
+\title{First Book}
+\author{Kurt Schmidt}
+\date{Aug 2014}
+
+\begin{document}
+
+\maketitle % ?? Use this for books?
+
+%%%%%%  Front Matter  %%%%%%%%%%%%%%%
+\frontmatter
+\tableofcontents
+
+%%%%%%  Main Matter  %%%%%%%%%%%%%%%
+\mainmatter
+\include{chptr01}
+\include{chptr-basics}
+\include{chptr-math}
+\include{chptr-tables}
+\include{chptr-code-listing}
+
+%%%%%%  Back Matter  %%%%%%%%%%%%%%%
+\backmatter
+%TODO get index working
+\printindex  % Automagic?  Ah, needed the package.  Still doing nothing.
+%bibliography.  TODO.  Not there yet
+
+\end{document}

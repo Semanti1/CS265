@@ -1,0 +1,45 @@
+% hello.tex - simple example using the article
+%
+% 
+\documentclass[a4paper,12pt,titlepage]{article}
+\pagestyle{plain}
+\title{Hello, World}
+\author{Kurt Schmidt \\
+	Drexel, Computer Science}
+\date{Sept. 2014}
+
+\begin{document}
+\maketitle
+
+Here's your obligatory `hello':  ``Hello.  Welcome to \LaTeX.''  \TeX is the
+basic language, Developed by Donald Knuth.  \LaTeX is a way handy extension
+to \TeX.  So, basic syntax probably applies to both.  Once we get into
+packages, I've not clue, as yet, so, I'll just be talking about \LaTeX.
+
+Easiest way to compile to PDF is using \texttt{pdflatex}.
+
+\section{Math}
+\label{hellomath}
+
+And now, some math.  Remember, $\sum_{i=1}^m i = \frac{m(m+1)}{2}$, along
+with identities for sums, and the sum of a geometric series.  You'll be
+needing them.
+
+Also recall these gems, you'll be needing them, too:
+
+\[ b^{\log_{b}{x}} = x \]
+\[ \log_{b}{b^x} = x \]
+\[ \log_{b}{xy} = \log_{b}{x} + \log_{b}{y} \]
+\[ \log_{b}{x/y} = \log_{b}{x} - \log_{b}{y} \]
+\[ \log_{b}{x^n} = n\log_{b}{x} \]
+
+So, 
+
+\[ x^{\log_{b}{y}} = y^{\log_{b}{x}} \]
+
+\section*{El Fin du Monde}
+\label{end}
+
+And that's it for now.  See section \ref{hellomath}.
+
+\end{document}

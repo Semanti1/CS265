@@ -1,0 +1,445 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+	<meta http-equiv="Content-Language" content="en-us">
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta http-equiv="Expires" content="no-expire">
+	<meta name="Author" content="Vera Zaychik & Kurt Schmidt">
+	<meta name="Publisher" content="Drexel University">
+	<meta name="Copyright" content="">
+	<meta name="Keywords" content="Programming Techniques Unix">
+	<meta name="Description"
+		content="Lab for CS265/571 - Adv. Programming Techniques">
+	<meta name="Pagetype" content="Lab">
+	<meta name="Audience" content="All">
+	<link rel='shortcut icon' type='image/gif'
+		href='../../images/drexel.gif'></link>
+	<script language="JavaScript" src="../courseInfo.js"></script>
+	<script language="JavaScript" src="../../Scripts/courseFormat.js"></script>
+	<title>Lab - starting on Unix</title>
+</head>
+
+<body text="#330099" link="#000066" vlink="#000066" alink="#FF0000"
+	background="../../images/blueTexture.jpeg">
+
+<ul><ol>
+
+<h1>Lab - Unix</h1>
+
+<h3> Instructions </h3>
+<p> Questions will be denoted w/a <font color='#990066'><b>Q#</b></font>.
+You will answer each question in a text file called <tt><b>lab1</b></tt> .
+</p>
+
+<p>The directory for this lab is
+<tt><b>tux:~kschmidt/public_html/CS265/Labs/Unix</b></tt>, or, via the Web:
+<tt><b>
+<script><!--
+	printPath( 'Labs/Unix' )
+	//--></script>
+</b></tt>
+
+
+<h2> Logging in, set up </h2>
+
+<li>If you do <b>not</b> yet have an account on the CS department
+	machines, follow this link: <a target="new" href=
+		"https://www.cs.drexel.edu/Account.php">
+		https://www.cs.drexel.edu/Account.php</a>
+	<br>Remember to click the OK button only <i>once</i>
+</li>
+
+<li> As an example of logging in, creating (and locking) a directory,
+	creating C++ source, compiling, running, and removing the binary, follow
+	the instructions in <a
+	target='_blank'
+	href='http://www.cs.drexel.edu/~kschmidt/Ref/csLogin.html'>
+	http://www.cs.drexel.edu/~kschmidt/Ref/csLogin.html</a> .  Use
+	<tt><b>CS265</b></tt> as the course . </li>
+
+<li>Familiarize yourself with the commands on my <a target="cs265" href=
+	"http://www.cs.drexel.edu/~kschmidt/Ref/unix_reference.html">
+	basic Unix reference page</a>
+</li>
+
+<li>You will connect to, and do all of your work on,
+	<tt>tux.cs.drexel.edu</tt>.  Tux is actually a farm of about 8 or 9
+	servers.  You may either sit directly at one of our department
+	machines, or use SSH to connect remotely</li>
+
+<li>If you've not created a directory for this course, type:
+	<blockquote><tt>
+		mkdir CS265
+	</tt></blockquote>
+</li>
+
+<li>Lock it down, so others can't see it (explanation follows):
+	<blockquote><tt>
+		chmod 700 CS265
+	</tt></blockquote>
+	<p> Your housekeeping is up to you.  I recommend a subdirectory for each
+	lab/assignment you're working on.  However it happens, <b>all files should
+		be underneath (subdirectories) of this course directory</b>, so others
+	can't get to your work. </p>
+</li>
+
+<h2><tt>bash</tt> startup files</h2>
+
+<li>Use <tt>man</tt> or <tt>info</tt> to read about bash, specifically,
+parsing the start-up files <tt><b>.bashrc</b></tt> and
+<tt><b>.bash_profile</b></tt>.
+
+<p><font color='#990066'><b>Q1</b>: Describe when the shell invokes
+<tt>.bashrc</tt>, and when it invokes <tt>.bash_profile</tt>.</font></p>
+
+<li>
+	<p> List out the contents of your home directory.  If you're new, you may
+	copy <tt>.bashrc</tt> that I've made for you, I think it's a decent place
+	to start.  It is located in <tt>~kschmidt/Public</tt>.  You might also
+	take the <tt>.vimrc</tt> that's there.  Before you do, make back-ups of
+	your existing startup files (if any). </p>
+
+	<p><b>Note:</b>  As a sanity check, when changing your startup files, the
+	best way to test is simply to invoke another instance of the shell (a
+	subshell), by typing <tt>bash</tt>.  If things are seriously wrong you can
+	exit out of there, back to a shell that's in okay shape, and fix up the
+	problem.</p>
+</li>
+
+<h2>Editors</h2>
+
+<li>Go to your class directory, under your home directory.</li>
+
+<li>Make an appropriate subdirectory for this lab...</li>
+
+<p>You may use either emacs or vi (vim).  Both are powerful editors,
+understand many languages, provide syntax highlighting, etc..  To get
+started:</p>
+	<ul>
+		<li> <b>vi</b> - just type <tt>vimtutor</tt> at the prompt.  (You'll get
+			the same file that this lab uses).  Save it as <tt><b>vi_lab</b></tt>:
+			<blockquote><code>:w vi_lab  </code> (from command mode)
+			</blockquote>
+		</li>
+		<li> <b>emacs</b> - start emacs, then hit <tt>ctrl-h</tt>, then
+			<tt>t</tt> <sup>&dagger;</sup></li>
+	</ul>
+
+<p><sup>&dagger;</sup> If you are using emacs, after you get introduced, use
+vi to save <tt><b>vi_lab</b></tt>, as directed above, or copy it out of the
+lab directory, and make the requested edits. </p>
+
+<p><font color='#990066'><b>Q2</b>:Complete all edits in this file,
+as directed by the file, save as <tt>vi_lab</tt>, and submit along w/your
+lab.</font></p>
+
+<h2> Permissions - <tt>chmod</tt> </h2>
+
+<li> Type <tt><b>ls -al</b></tt> and note the first column of each entry.
+E.g.:
+
+<blockquote>
+<pre>total 79
+drwxr-xr-x    2 kurt     None            0 Jan  8 05:17 .
+drwxr-xr-x    3 kurt     None            0 Jan  8 04:55 ..
+-rw-r--r--    1 kurt     None         8059 Jan  8 05:25 funny
+-rwxr-xr-x    1 kurt     None          198 Jan  8 05:17 hello.bash
+-rw-r--r--    1 kurt     None          319 Jan  8 06:26 index.html
+-rw-r--r--    1 kurt     None        28454 Jan  8 06:24 vi_lab</pre>
+</blockquote>
+
+<p>There are 10 characters there.  The first one is the file type
+(<tt>d</tt> for directory, <tt>-</tt> for a regular file).</p>
+
+<p>The next nine are permissions on the file (or directory).  Consider them
+as three groups of three:</p>
+<ul>
+	<li>The first group are your permissions, the 2nd group are your group's
+		permissions, and the final 3 are the permissions for the whole
+		world.</li>
+	<li>Each group is of the form rwx.  If the character is present, then the
+		particular permission is granted.</li>
+		<ul>
+			<li>r - read</li>
+			<li>w - write</li>
+			<li>x - execute</li>
+		</ul>
+
+	<li>These are fairly self-explanatory for files, but need some exploration
+	for directories.</li>
+
+	<h3>The <tt>chmod</tt> command</h3>
+
+	<li>The chmod command allows you to set (change) the permissions on a file or
+	directory.</li>
+
+	<li>There are several forms, including the ability to express all
+	permissions for a particular entity (user, group, world) as a single
+	integer:</li>
+
+		 <p>4 - read<br>
+		 2 - write<br>
+		 1 - execute</p>
+
+	<li>You combine permissions by adding the values for the desired permissions.
+	So, e.g.,</li>
+
+		 <p>7 - all permissions<br>
+		 6 - r &amp; w<br>
+		 5 - r &amp; e<br>
+		 3 - w &amp; e (a rare one, actually)</p>
+
+	<li>When you specify permissions to chmod, you must specify the
+	permissions for all 3 entities.  This is simply 3 integers, in order:
+	user, group, world.</li>
+
+	<li>The form of the command is:
+		 <blockquote><tt><b>chmod</b> <i>perm</i> <i>file</i></tt></blockquote>
+
+	<p>E.g.:</p>
+
+	<ul>
+		<li> <tt>chmod 700 Personal</tt> &ndash; gives you all permissions on
+			your <tt>Personal/</tt> directory, and none to anybody else </li>
+		<li> <tt>chmod 755 Public</tt>  &ndash; gives you all permissions on your
+			<tt>Public/</tt> directory, and read and execute access to everyone
+			else </li>
+		<li> <tt>chmod 644 .plan</tt> &ndash; You have read &amp; write on
+			your <tt>.plan</tt> file, all others have only read </li>
+		<li> <tt>chmod 600 homework.cc</tt> &ndash; you have read &amp; write,
+			and all others have no access </li>
+
+	<p>In general, you NEVER want to give people write access to your
+	directories.  Some directories we leave open for read and execute, like
+	public_html, so people can get to your webpages, and so on.</p>
+</ul>
+
+<li>Copy <tt>funny</tt> and <tt>hello.bash</tt> from the course lab
+directory</li>
+
+<p><font color='#990066'><b>Q3</b>: Do an <tt><b>ls -l</b></tt> .  What do you
+see?</font></p>
+
+<p><font color='#990066'><b>Q4</b>: If you enter <tt><b>chmod 644</b>
+some_file</tt> , what permissions did you give to whom?</font></p>
+
+<p><font color='#990066'><b>Q5</b>: If you enter <tt><b>chmod 755</b>
+some_file</tt> , what permissions did you give to whom?</font></p>
+
+<li>Type <tt><b>chmod 644</b> funny</tt></li>
+
+<p><font color='#990066'><b>Q6</b>: Can you read your <tt>funny</tt>
+file?</font></p>
+
+<li>Type <tt><b>chmod 644</b> hello.bash</tt></li>
+
+<p><font color='#990066'><b>Q7</b>: Can you read your <tt>hello.bash</tt>
+file?</font></p>
+
+<li>Attempt to execute <tt>hello.bash</tt>:  <tt>$ <b>./hello.bash</b></tt>
+
+<p><font color='#990066'><b>Q8</b>: Were you successful?</font></p>
+
+<p><font color='#990066'><b>Q9</b>: What are 2 ways of giving yourself execute
+permission on this file?</font></p>
+
+<li>Type:  <tt>$ <b> chmod 400</b> funny</tt>
+<li>Open the file in an editor, make a change</li>
+<li>Save the file</li>
+
+<p><font color='#990066'><b>Q10</b>: What happened?</b></font>
+
+<h2>Your website</h2>
+<li>Return to your home directory</li>
+<li>Create a directory called <tt><b>public_html</b></tt></li>
+<li>Make that your current working directory</li>
+<li>Copy <tt>sample.html</tt> to your directory, renaming it to
+	<tt>index.html</tt></li>
+
+<li>Fill it in, then open up a browser.  Make sure you can see the page.
+<tt>www.cs.drexel.edu/~<i>userId</i>/index.html</tt> .</li>
+<li>Leave it there, and open, for us to view.</li>
+
+<h2>Shell wildcards and special symbols</h2>
+
+<li>The shell reserves certain characters.  These include <tt>*</tt>,
+which matches any number of characters, and <tt>?</tt>, which matches
+exactly 1 character.  A space is used to separate tokens.</li>
+
+<li>Copy the following files from my directory:
+<tt>annoy annoy.cc itemList itemList-2cols TelecomTruths UnitTestingPhase</tt></li>
+
+<li>Execute each of the following lines:
+	<blockquote><tt>
+		ls *
+		<br>ls a*
+		<br>ls *m*
+		<br>ls anno?
+		<br>ls annoy?
+	</tt></blockquote>
+
+	<p><font color='#990066'><b>Q11</b>: What is the output of each of
+		these?</font></p>
+
+<li>We can suppress these special meanings in different ways:
+	<ul>
+		<li><tt>\</tt> is the escape character</li>
+		<li>single quotes (suppresses all special meanings)</li>
+		<li>double quotes, keeps variable substitution, <tt>$</tt>, command
+		substitution (back quotes), and the escape character, <tt>\</tt></li>
+	</ul>
+</li>
+
+<li>Create a file w/a space in the name:  <tt><b>vi a space</b></tt>
+<p><b><font color="#990066">Q12</b>:  What happened?</font></p>
+</li>
+
+<li>Quit out of both those files, w/out saving</li>
+
+<li>try again:  <tt><b>vi "a space"</b></tt></li>.  Type something in,
+	save.</li>
+
+<li>Remove it:  <tt><b>rm a\ space</b></tt>.  2 different ways to do
+	escape the space (which has special meaning to the shell).</li>
+
+<h2>Quoting, Command Substitution</h2>
+
+<li>If the shell sees back quotes it will execute the quoted command,
+and replaced the quoted expression w/the output (stdout) of the command.
+
+<li>try each of the following commands.
+
+<p><font color="#990066"><b>Q13</b>: Record the output:
+
+	<ul type="a">
+		<li><tt>echo Is a &lt; b?</tt></li>
+		<li><tt>echo "Is a &lt; b?"</tt></li>
+		<li><tt>echo "\$USER is $USER"</tt></li>
+		<li><tt>echo '\$USER is $USER'</tt></li>
+		<li><tt>echo "Today is `date`"</tt></li>
+		<li><tt>echo "Today is $(date)"</tt></li>
+		<li><tt>echo 'Today is `date`'</tt></li>
+		<li><tt>echo -e "Files that start w/e:\n`ls e*`"</tt></li>
+	</tt></ul>
+</font></p>
+
+<h2>Pipe, redirection</h2>
+
+<p>You've already seen an example of a pipe.  You can string as many
+	as you want together:
+	<blockquote><tt><b>ls -ao -1 | sort -nr -k4 | more</b><br>
+		<b>ls -a -1 | wc -l</b></tt></blockquote>
+</p>
+
+<p>Output from a command can be sent (<i>redirected</i>) to a file, instead
+	of the screen:
+	<blockquote><tt><b>finger</b> &gt; people<br>
+		<b>less</b> people</tt></blockquote>
+</p>
+
+<p>Input <i>to</i> a command can be from a file:
+		<blockquote><tt><b>mail</b> -s "testing" ${USER}@drexel.edu &lt;
+				telecomTruths</tt></blockquote>
+	Now go check your mail.</p>
+
+<h2>Files</h2>
+
+<p><font color="#990066"><b>Q14</b>: What is the difference between <tt>sort
+itemList-2cols</tt> and <tt>sort -n itemList-2cols</tt>?</font></p>
+
+<p><font color="#990066"><b>Q15</b>: How would you list the 8 items in
+<tt>itemList-2cols</tt> w/the <i>highest</i> numbers, in <i>descending</i>
+order?</font></p>
+
+<li>enter <tt>du -sh *</tt></li>
+
+<li>now try <tt>du -bs * | sort -nr | head -4</tt></li>
+
+<li>Go to your home directory and try it, then come back here.  Now
+you can find where the bulk of your quota is hiding</li>
+
+<h2>Archiving</h2>
+
+<li>Tar all the files in your directory:  <tt>tar cvf lab1.tar *</tt></li>
+<li>Make sure you got it all:  <tt>tar tf lab1.tar</tt></li>
+<li>Now zip that file up:  <tt>gzip lab1.tar</tt>
+
+<p><font color="#990066"><b>Q16</b>: The tar file is gone.  What is in its
+place?</font></p>
+
+<li>Delete that file, we'll do it all at once:
+	<blockquote><tt>
+		tar cvf - * | gzip &gt; lab1.tgz
+	</tt></blockquote>
+	Okay, delete the tgz file.
+</li>
+
+<li>If you have a newer <tt>tar</tt>, you're on a linux box, we can be even
+slicker:
+	<blockquote><tt>
+		tar cvzf lab1.tgz *
+	</tt></blockquote>
+</li>
+
+<li>Make a copy of that file:  <tt>cp lab1.tgz lab1.2.tgz</tt></li>
+
+<li>Okay, now let's extract gzip and tar files:
+	<blockquote><tt>
+		gunzip lab1.tgz
+	</tt></blockquote>
+
+<p><font color="#990066"><b>Q17</b>: What happened to the <tt>*.tgz</tt>
+file?</font></p>
+</li>
+
+<li>To untar a tar file:
+	<blockquote><tt>
+		mkdir play
+		<br>mv lab1.tar lab1.2.tgz play
+		<br>cd play
+		<br>tar xvf lab1.tar
+	</tt></blockquote>
+</li>
+
+<li>To do that all at once:
+	<blockquote><tt>
+		gunzip -c lab1.2.tgz | tar xvf -
+	</tt></blockquote>
+
+	<p>Or, if you're on a Linux box:
+
+	<blockquote><tt>
+		tar xvzf lab1.2.tgz
+	</tt></blockquote>
+</li>
+
+<li>Clean up:
+	<blockquote><tt>
+		cd ..
+		<br>\rm -rf Play
+	</tt></blockquote>
+
+<h2>Looking around</h2>
+
+<p><font color="#990066"><b>Q18</b>: Show the <tt>grep</tt> used to find if
+any files in this lab directory mention "Vacation".</font></p>
+</li>
+
+<li>Now where did I put that?  You've just logged in, and cd'd to your lab
+directory, but <tt>lab1</tt> isn't there.  Without changing directories,
+issue a <tt>find</tt> to search your entire home directory for that file you
+were working on, <tt>lab1</tt>.
+
+<p><font color="#990066"><b>Q19</b>: Put the find command you used above
+	here in your labsheet.</font></p>
+</li>
+
+<h1>Submission</h1>
+<p> <strong>Never</strong> tarfiles, tarballs, etc. </p>
+<ul>
+	<li> <tt><b>lab1</b></tt> - your answer sheet </li>
+	<li> <tt><b>vi_lab</b></tt> - VIM tutorial </li>
+</ul>
+</ol>
+</body>
+</html>

@@ -1,0 +1,61 @@
+
+\chapter{Basics}
+\label{basics} 
+
+Okay, I'm still working on my own understanding here, so, this is not etched
+in stone.
+
+\section{Modes}
+\label{modes}
+
+\TeX supports 2 basic modes, math and text.
+
+When you're typing along, you're entering text.  Mostly you can just type as
+you would, with a few exceptions.  There are metacharacters, paragraphs are
+separated by two (or more) newlines.
+
+Whitespace serves to separate words, etc, but in a typeset environment,
+sequences of spaces, e.g., aren't of fixed size.
+
+\subsection{Metacharacters}
+\label{metacharacters}
+
+The following characters can not simply be typed, as they have special
+meaning to \LaTeX{}:
+
+\begin{quote}
+	\{~~\}~~\$~~\%~~\_~~\&~~\#~~\^{}~~\textbackslash{}~~\~{}
+\end{quote}
+
+Here is how to print these characters in \LaTeX{}.  These metacharacters
+will be explained, but for the moment, trust me.
+
+\begin{center}
+	\begin{tabular}{c|l}
+		\hline
+			\{ & \textbackslash{}\{ \\
+		\hline
+			\} & \textbackslash{}\} \\
+		\hline
+			\$ & \textbackslash{}\$ \\
+		\hline
+			\% & \textbackslash{}\% \\
+		\hline
+			\& & \textbackslash{}\& \\
+		\hline
+			\# & \textbackslash{}\# \\
+		\hline
+			\_ & \textbackslash{}\_ \\
+		\hline
+			\textbackslash & \textbackslash{}textbackslash \\
+		\hline
+			\^{} & \textbackslash{}\^{}\{\} \\
+		\hline
+			\~{} & \textbackslash{}\~{}\{\} \\
+			\textasciitilde & \textbackslash{}textasciitilde \\
+			$\sim$ & \$\textbackslash{}sim\$ \\
+		\hline
+	\end{tabular}
+\end{center}
+
+

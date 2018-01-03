@@ -1,0 +1,85 @@
+#!/bin/bash
+dirtocheck='.'
+value=''
+xml=''
+files_found=()
+others=()
+
+if [ $# -gt 0 ]; then
+	dirtocheck=$1;
+fi
+
+for dir in $(find $dirtocheck -type d) 
+do
+  if [ -e "$dir/README" ]; then
+		xml="$dir/dir.xml"
+		touch $xml
+		echo '<?xml version="1.0" encoding="ISO-8859-1"?>' > $xml
+		echo '<direntry>' >> $xml
+                for line in $(./parse.awk "$dir/README"); do
+			if [[ "$line" == 'index' || "$line" == 'required' || "$line" == 'other' ]] ;
+			then
+				if [[ -z $value ]] ; then
+					value="$line"
+					echo -e "\t<$value>" >> $xml
+				elif [[ ! -z $value && $value != "$line" ]] ; then
+					echo -e "\t</$value>" >> $xml
+					value="$line"
+					echo -e "\t<$value>" >> $xml
+				fi
+				continue
+			fi
+
+			if [[ ! -d "$dir/$line" ]] ; then
+				echo -e "\t\t<file>$line</file>" >> $xml
+			else
+				echo -e "\t\t<dir>$line</dir>" >> $xml
+			fi
+
+			files_found=("${files_found[*]}" "$line")
+		done
+		echo -e "\t</$value>" >> $xml
+
+		present=0
+
+		for file in `ls $dir`
+		do
+			for found in ${files_found[*]} 
+			do
+				if [[ "$file" == "$found" ]]; then
+					present=1
+				fi
+			done
+
+			if [[ $exists -eq 0 ]]; then
+				if [[ "$file" != "dir.xml" && $file =~ [^\w] ]]; then
+					others=("${others[*]}" "$file")
+				fi
+			fi
+
+			present=0
+	
+		done
+
+		#echo ${files_found[@]}
+	fi
+	value=''
+	files_found=('')
+	if [[ ${#others[*]} -gt 0 ]]; then
+		echo -e "\t<other>" >> $xml
+		for file in ${others[*]}
+		do
+			if [[ "$file" == "\n" ]]; then
+				continue;
+			fi
+			if [[ ! -d "$dir/$file" ]] ; then
+				echo -e "\t\t<file>$file</file>" >> $xml
+			else
+				echo -e "\t\t<dir>$file</dir>" >> $xml
+			fi
+		done
+		echo -e "\t</other>" >> $xml
+	fi
+	echo "</direntry>" >> $xml
+	others=('')
+done

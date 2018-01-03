@@ -1,0 +1,17 @@
+	echo Is a
+		./shit: line 2: b?: No such file or directory
+	echo 'Is a < b?'
+		Is a < b?
+	echo '$USER is Administrator'
+		$USER is Administrator
+	echo '\$USER is $USER'
+		\$USER is $USER
+	++ date
+	echo 'Today is Sat Jul 15 08:56:16 EDT 2006'
+		Today is Sat Jul 15 08:56:16 EDT 2006
+	echo 'Today is `date`'
+		Today is `date`
+	echo -e "Files that start w/e:\n`ls e*`"
+		Files that start w/e:
+		example
+		example2

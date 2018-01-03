@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta http-equiv="Content-Language" content="en-us">
+	<meta name="Author" content="Kurt Schmidt">
+	<script language="JavaScript" src="../Scripts/courseFormat.js"></script>
+  <title>CS265 - Lab 7</title>
+</head>
+
+<body text="#330099" link="#000066" vlink="#000066" alink="#FF0000"
+	background="../../../images/blueTexture.jpeg">
+
+<font size="+2">
+
+<p>Get ~kschmidt/CS265/Labs/7/lab.tgz
+<p>Look over all .pl scripts:
+	<table>
+		<tr>
+			<td><font size='+1'>intro.pl</font></td>
+			<td><font size='+1'>for, foreach, $_, ranges, quoting</font></td>
+		</tr>
+		<tr>
+			<td><font size='+1'>diamond.pl</font></td>
+			<td><font size='+1'>&lt;&gt;, $_, $ARGV, print, while</font></td>
+		</tr>
+		<tr>
+			<td><font size='+1'>parseCountries.pl</font></td>
+			<td><font size='+1'>for, foreach, slice, file I/O, split</font></td>
+		</tr>
+		<tr>
+			<td><font size='+1'>filterCountries.pl</font></td>
+			<td><font size='+1'>while, =~, split</font></td>
+		</tr>
+		<tr>
+			<td><font size='+1'>grep.pl</font></td>
+			<td><font size='+1'>while, =~</font></td>
+		</tr>
+		<tr>
+			<td><font size='+1'>sumRows.pl</font></td>
+			<td><font size='+1'>while, =~, split</font></td>
+		</tr>
+		<tr>
+			<td><font size='+1'>cc2html.pl</font></td>
+			<td><font size='+1'>all</font></td>
+		</tr>
+	</table>
+
+<p>Take the <tt>sample.html</tt> page, rename it to <tt>index.html</tt>, place
+	it in your ~/public_html directory, and fill it in.  Make sure protections
+	are sufficient to allow people to read it over the Web.
+<p>Write the following scripts:
+
+<dl>
+	<dt><tt>wc.pl</tt></dt>
+	<dd>Just counts the # of words and the # of lines in the named file(s)</dd>
+	<dd>Look at diamond.pl and sumRows.pl.  Count lines.  For each line,
+		split it into an array, and you already know how to find out how many
+		things are in an array.  2 running totals.  :/</dd>
+	
+	<dt><tt>pay.pl</tt></dt>
+	<dd>Look at the input file employees.  It lists a name, an hourly pay
+		rate (USD), and the number of hours worked this week, separated by
+		spaces</dd>
+	<dd>Write a Perl Script that will read the file.  For each person who
+		actually worked, print out the name and the pay for the week.  Hours
+		past 40 are paid at 1.5 times their hourly rate</dd>
+</dl>
+
+</body>
+
+</html>

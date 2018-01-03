@@ -1,0 +1,393 @@
+
+% use pdflatex to compile
+
+\documentclass[a4paper,12pt,titlepage]{article}
+\pagestyle{plain}
+\title{First LaTeX Attempt}
+\author{Kurt Schmidt\\
+  Dept. of Computer Science,\\
+  Drexel University\\
+  3141 Chestnut St.\\
+  Philadelphia, PA  19104}
+
+
+%\\date{Dec 2012}usepackage{graphicx}
+\usepackage[pdftex]{graphicx}
+\graphicspath{{.}{~/public\_html/images}}
+
+\begin{document}
+\maketitle
+
+% This is lifted largely from http://www.maths.tcd.ie/~dwilkins/LaTeXPrimer/
+%
+
+This is a paragraph.  My first one in \LaTeX.  They just need to be
+separated by blank lines.
+
+These are meta characters, so, need to be escaped:  \{, \}, \$, \_,
+\%, \#, \& 
+
+Backslash is special:  \textbackslash{}textbackslash
+
+We have a hyphen -, endash --, and an emdash --- .
+
+We have \emph{emphasis},
+
+The \$ puts you into mathematics mode in a paragraph of regular text:  
+$ f: R \to R $
+
+So, I suppose this is for indented math expressions (note the super and
+subscripts in math mode)
+
+\[ |f(y) - f(x)| < \epsilon \]
+\[ p_{i} = p_{i-1}^2 \]
+
+In text mode, the \textasciicircum is for character composition: \^O
+
+Left-- and right-- quotes are distinguished.  They are formed with 2
+back-ticks, ``, and single-quotes, ''.  "Let's see what regular
+double-quotes yield.  Ah.  Left quotes."
+
+Some common control characters:
+
+% this acts as a line comment
+$\to$
+$\rightarrow$
+$\leftarrow$
+
+Note, the lin% another comment
+		 	   e comment is more; it also ignore the newline, and any leading
+whitespace on the next line.
+
+\{\} are used for grouping:  \emph{This is the emphasis tag.}
+
+Let's see if we can get a superscript on a subscript:  $T_{n^2}$
+
+\section{This is a Section}
+\subsection{This is a Subection}
+\subsection{And Another}
+
+\section*{This Section Doesn't Have a Number}
+\subsection*{Does this subsection?}
+\subsection{Ah, unnumbered sections do not affect the numbering.}
+
+\subsection*{Font Families (Typefaces)}
+Well, \textrm{This is Roman family}
+\textsf{This is Sans Serif family}
+\texttt{This is typewriter (true type) family}
+
+\subsection*{Font Shapes}
+We have:  \textup{upright text (default)}
+\textit{ Italics }
+\textsl{Slanted, somehow different than italics?}, and
+\textsc{We have cool small-caps, too.  Nice.}
+
+\subsection*{Font Sizes}
+\tiny{This is tiny}
+
+\scriptsize{This is scriptsize}
+
+\footnotesize{This is footnotesize}
+
+\small{This is small}
+
+\normalsize{This is normalsize}
+
+\large{This is large}
+
+\Large{This is Large}
+
+\LARGE{This is LARGE}
+
+\huge{This is huge}
+
+\Huge{This is Huge}
+
+
+\subsection*{Accents and Such through Control Sequences}
+\normalsize{I dunno, those Size things seemed to persist}
+
+S\'{\i}, math\'ematique
+
+Hasta Ma\~nana, Pi\c{e}kos. Kurt G\"odel.  We have dotless {\i}s and {\j}s
+
+There be others, of course.
+
+\section*{Math}
+
+Common control chars:  $\times$ $\div$ $\circ$ $\cap$ $\cup$ $\dagger$
+$\ddagger$ $\otimes$ $\exists$ $\forall$ $\neg$ $\vert$ $\flat$ $\natural$
+$\sharp$
+
+\subsection*{Numbering Equations}
+
+	\begin{equation}
+		x + y = 17 
+	\end{equation}
+	\begin{equation}
+		y = 3x - 42
+	\end{equation}
+
+\subsection*{Functions}
+
+\[ \cos(\theta + \phi) = \cos \theta \cos \phi
+      - \sin \theta \sin \phi \]
+
+We can create ones not in the list: $\operatorname{foo } x$
+
+Embedding Text in Math
+
+\[ M^\bot = \{ f \in V' : f(m) = 0 \mbox{ for all } m \in M \}.\]
+
+\subsection*{Fractions \& Roots}
+
+The roots of a quadratic polynomial $a x^2 + bx + c$ with
+$a \neq 0$ are given by the formula
+\[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]
+
+The roots of a cubic polynomial of the form $x^3 - 3px - 2q$
+are given by the formula
+	\[ \sqrt[3]{q + \sqrt{ q^2 - p^3 }}
+		+ \sqrt[3]{q - \sqrt{ q^2 - p^3 }} \]
+where the values of the two cube roots must are chosen
+so as to ensure that their product is equal to $p$.
+
+We have 2 types of ellipsis\ldots
+
+	\[ \frac{1 - x^{n+1}}{1 - x} = 1 + x + x^2 + \cdots + x^n \]
+
+\subsection*{Brackets \& Norms}
+
+Left and right (), \{\}, [], of appropriate size:
+	\[ \left| 4 x^3 + \left( x + \frac{42}{1+x^4} \right) \right|.\]
+
+	\[ \left. \frac{du}{dx} \right|_{x=0}.\] 
+
+\subsection*{Multiline Formulae}
+
+\begin{eqnarray}
+\cos 2\theta & = & \cos^2 \theta - \sin^2 \theta \\
+             & = & 2 \cos^2 \theta - 1.
+\end{eqnarray}
+
+The asterisk suppresses equation numbering:
+
+If $h \leq \frac{1}{2} |\zeta - z|$ then
+	\[ |\zeta - z - h| \geq \frac{1}{2} |\zeta - z|\] 
+and hence
+	\begin{eqnarray*}
+	\left| \frac{1}{\zeta - z - h} - \frac{1}{\zeta - z} \right|
+	& = & \left|
+	\frac{(\zeta - z) - (\zeta - z - h)}{(\zeta - z - h)(\zeta - z)}
+	\right| \\  & = &
+	\left| \frac{h}{(\zeta - z - h)(\zeta - z)} \right| \\
+		& \leq & \frac{2 |h|}{|\zeta - z|^2}.
+	\end{eqnarray*}
+
+
+\subsection*{Matrices}
+
+The \emph{characteristic polynomial} $\chi(\lambda)$ of the
+$3 \times 3$~matrix
+\[ \left( \begin{array}{ccc}
+a & b & c \\
+d & e & f \\
+g & h & i \end{array} \right)\] 
+is given by the formula
+\[ \chi(\lambda) = \left| \begin{array}{ccc}
+\lambda - a & -b & -c \\
+-d & \lambda - e & -f \\
+-g & -h & \lambda - i \end{array} \right|.\]
+
+
+\emph{Now} we can describe piecewise-defined functions (remember, mbox is
+used to embed text in math):
+
+	\[ |x| = \left\{
+		\begin{array}{ll}
+			 x & \mbox{if $x \geq 0$}\\
+			-x & \mbox{if $x < 0$}
+		\end{array} \right. \] 
+
+
+\subsection*{Derivatives, Limits, Sums and Integrals}
+
+Derivatives, now that we know fractions, are nothing special:
+
+	\[ \frac{\partial u}{\partial t}
+		 = h^2 \left( \frac{\partial^2 u}{\partial x^2}
+      + \frac{\partial^2 u}{\partial y^2}
+      + \frac{\partial^2 u}{\partial z^2} \right) \]
+
+Limits and such:
+
+	\[ \lim_{x \to +\infty}, \inf_{x > s} \mbox{and} \sup_K  \]
+
+Sums:  $ \sum_{k=1}^m k^2 = \frac{m (m+1) (2m+1)}{6} $
+
+Think we have products, too?  $\prod_{i=1}^m i = m! $.  Cool.
+
+And we have integrals:
+    \[ \int_0^{+\infty} x^n e^{-x} \,dx = n!.\] 
+
+    \[ \int \cos \theta \,d\theta = \sin \theta + c.\] 
+
+    \[ \int_{x^2 + y^2 \leq R^2} f(x,y)\,dx\,dy
+       = \int_{\theta=0}^{2\pi} \int_{r=0}^R
+          f(r\cos\theta,r\sin\theta) r\,dr\,d\theta.\] 
+
+In some multiple integrals (i.e., integrals containing more than one integral
+sign) one finds that LaTeX puts too much space between the integral signs. The
+way to improve the appearance of of the integral is to use the control sequence
+$\!$ to remove a thin strip of unwanted space
+
+	\[ \int_0^1 \! \int_0^1 x^2 y^2\,dx\,dy. \] 
+
+	\[ \int \!\!\! \int_D f(x,y)\,dx\,dy. \]
+
+
+\section*{Lists}
+
+We have ordered lists:
+
+\begin{enumerate}
+	\item \emph{Geno's}, not Pat's
+	\item Order steak:
+		\begin{enumerate}
+			\item Say ``Steak''
+			\item Say ``with'', if you want onions
+			\item Tell which type of cheese
+		\end{enumerate}
+	\item You don't have all night, gotta eat it before it gets cold
+\end{enumerate}
+
+\noindent And bulleted lists:
+
+\begin{itemize}
+	\item Toothbrush
+	\item Knife
+	\item Bathing suit
+	\item
+		Documents
+		\begin{itemize}
+			\item passport
+			\item dive log
+		\end{itemize}
+	\item Sunglasses
+\end{itemize}
+
+\noindent Finally, descriptive lists:
+
+\begin{description}
+	\item[halyard]
+		Line that raises a sail
+	\item[sheet]
+		Line that trims a sail
+	\item[reefing line]
+		Line rigged to (effectively) shorten a sail
+	\item[furler]
+		Line that furls a sail (if it's so rigged).  E.g., if the main furls
+		around the mast, you leave the halyard be, release the furling line, and
+		use the outhaul to "put up" (pull out) the main, and the furler to pull
+		it back in.  Convenient, but the sail is, necessarily, flatter than we'd
+		like it to be.  Works much better for a foresail.
+\end{description}
+
+\section*{Quotes}
+
+Use quote for shorter quotes:
+
+\begin{quote}
+Anti-intellectualism has been a constant thread winding its way through our
+political and cultural life, nurtured by the false notion that democracy
+means that `my ignorance is just as good as your knowledge.'
+
+--Isaac Asimov
+\end{quote}
+
+Use quotation for longer quotes.  This is from the story ``Flight'', by John
+Steinbeck.
+
+\begin{quotation}
+The dawn came and the heat of the day fell on the earth, and still Pepe slept.
+Late in the afternoon his head jerked up. He looked slowly around. His eyes
+were slits of weariness. Twenty feet away in the heavy brush a big tawny
+mountain lion stood looking at him. Its long thick tall waved gracefully; its
+ears were erect with interest, not laid back dangerously. The lion squatted
+down on its stomach and watched him.
+
+Pepe looked at the hole he had dug in the earth. A half-inch of muddy water had
+collected in the bottom. He tore the sleeve from his hurt arm, with his teeth
+ripped out a little square, soaked it in the water and put it in his mouth.
+Over and over he filled the cloth and sucked it.
+
+Still the lion sat and watched him. The evening came down but there was no
+movement on the hills. No birds visited the dry bottom of the cut. Pepe looked
+occasionally at the lion. The eyes of the yellow beast drooped as though he
+were about to sleep. He yawned and his long thin red tongue curled out.
+Suddenly his head jerked around and his nostrils quivered. His big tail lashed.
+He stood up and slunk like a tawny shadow into the thick brush.
+
+A moment later Pepe heard the sound, the faint far crash of horses' hoofs on
+gravel. And he heard something else, a high whining yelp of a dog.
+\end{quotation}
+
+\section*{Tables}
+
+The first five International Congresses of Mathematicians
+were held in the following cities:
+\begin{quote}
+\begin{tabular}{lll}
+Chicago&U.S.A.&1893\\
+Z\"{u}rich&Switzerland&1897\\
+Paris&France&1900\\
+Heidelberg&Germany&1904\\
+Rome&Italy&1908
+\end{tabular}
+\end{quote}
+
+We can even get some borders:
+
+\begin{tabular}{|r|r|}
+\hline
+$n$&$n!$\\
+\hline
+1&1\\
+2&2\\
+3&6\\
+4&24\\
+5&120\\
+6&720\\
+7&5040\\
+8&40320\\
+9&362880\\
+10&3628800\\
+\hline
+\end{tabular}
+
+\section{Embedding Images}
+
+Note the graphicx package, included above.
+
+Sadly, the type of image you embed depends upon your target type.  If the
+final output is a Postscript (using dvips), then embed only PostScript
+(Encapsulated PostScript) images.  If the target is PDF, then you can
+include PDF, PNG, JPEG, or GIF.
+
+\begin{figure}[htp]
+	\centering
+		\includegraphics[angle=30,scale=0.6]{sunFun.jpeg}
+		%\includegraphics[scale=0.6]{sunFun.jpeg}
+		\caption{A fun example picture}
+		\label{fig:sun 1}
+\end{figure}
+
+%\begin{figure}[tph!]
+%	\centerline{\includegraphics[angle=30,scale=0.6]{sunFun.jpeg}
+%		%\includegraphics[scale=0.6]{sunFun.jpeg}
+%		\caption{A fun example picture}
+%		\label{fig:sun 2}
+%\end{figure}
+
+\end{document}
+

@@ -1,0 +1,102 @@
+<!--<project default="compile">
+<target name="compile"/>
+ Javac compiles dependencies for us 
+<target name="prob1" >
+<javac srcdir='.' includes='prob1.java' />
+</target>
+<target name="prob2">
+<javac srcdir='.' includes='prob2.java'/>
+</target>
+<target name="prob3">
+<javac srcdir='.' includes='prob2.java'/>
+</target>
+<target name="prob4">
+<javac srcdir='.' includes='prob2.java'/>
+</target>
+
+
+
+
+
+<target name='run'  depends='compile'>
+
+<java classname='prob1'/>
+	<classpath>
+		<pathelement path="./" />
+		<pathelement location="." />
+	</classpath>
+	<arg value=""/>
+
+
+
+<java classname='prob2'/>
+       <classpath>
+                <pathelement path="." />
+                <pathelement location="." />
+        </classpath>
+       <arg num='45'/>
+<arg value="${arg1}"/>
+
+
+
+<java classname='prob3'>
+       <classpath>
+                <pathelement path="." />
+                <pathelement location="." />
+        </classpath>
+       <arg year='2001'/>
+<arg value="${arg2}"/>
+
+
+
+<java classname='prob4'>
+       <classpath>
+                <pathelement path="." />
+                <pathelement location="." />
+        </classpath>
+<arg value="${arg2}"/>
+</java>
+</target>
+
+
+</project>-->
+
+<project default='compile'>
+<target name="all" depends='compile,run'/>
+<target name="compile"/>
+<!-- Javac compiles dependencies for us -->
+<target name="prob1" >
+<javac srcdir='.' includes='prob1.java' />
+</target>
+<target name="prob2">
+<javac srcdir='.' includes='prob2.java'/>
+</target>
+<target name="prob3">
+<javac srcdir='.' includes='prob2.java'/>
+</target>
+<target name="prob4">
+<javac srcdir='.' includes='prob2.java'/>
+</target>
+<target name='run'  depends='compile'>
+
+	<java classname="prob1">
+        	<classpath path='./'/>   
+        	<arg value="Simmy"/>
+	</java>
+       
+
+
+	<java classname='prob2'>
+        	<classpath path='./'/>   
+        	<arg value="78"/>
+	</java>  
+	<java classname='prob3'>
+        	<classpath path='./'/>   
+        	<arg value="2017"/>
+	</java>  
+	<java classname='prob4'>
+        	<classpath path='./'/>   
+        	<arg value="2"/>
+	</java>
+</target>
+</project>

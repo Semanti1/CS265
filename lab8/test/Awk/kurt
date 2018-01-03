@@ -1,0 +1,6 @@
+
+{ item_count[$1] += $2 }
+
+END { for ( i in item_count )
+				print i, item_count[i]
+}

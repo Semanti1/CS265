@@ -1,0 +1,103 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Language" content="en-us">
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta name="Author" content="Kurt Schmidt">
+	<script language="JavaScript" src="../Scripts/courseFormat.js"></script>
+	<title>CS265 - CGI (using tweedle)</title>
+</head>
+
+<body text="#330099" link="#000066" vlink="#000066" alink="#FF0000"
+	background="../../../images/spiral_notebook.gif">
+
+<font size="+2">
+<ul>
+
+<h1>Using <tt>tweedledee.cs.drexel.edu</tt></h1>
+
+<h2>Intro</h2>
+
+<p>For security reasons we have set up a box, tweedledee, for us to run
+scripts on (everybody thank Cosmin for all of this work).  Our home
+directories are not mounted, but we have the same login and password.</p>
+
+<p>Again, for security purposes, we don't allow connections to go *out* from
+tweedledee.  This means that you'll need to push and pull files into/out of
+tweedledee from one of the other department machines, using
+<tt><b>scp</b></tt> or maybe <tt><b>sftp</b></tt></p>
+
+<p><b>Warning:</b>  You don't want to put any sensitive data out on this
+server.  You will also want to back up your work to your regualr CS home
+directory.</p>
+
+<h2>Directories</h2>
+
+<p>You'll have the normal <tt>public_html</tt> directory.  You should give
+the word read &amp; execute access, if you want to access the pages from the
+Web.</p>
+
+<p>In your home directory is also a link called <tt><b>cgi</b></tt> to a
+directory elsewhere on the machine.  Just treat it like a directory.  This
+is where your CGI "scripts" will go.  Any scripts will need to give the
+world read &amp; execute permission.</p>
+
+<h2>Requesting Pages from Outside</h2>
+
+<p>To get to a webpage:</p>
+
+<blockquote><tt>
+http://tweedledee.cs.drexel.edu/~<i>userId</i>/<i>page</i>.html
+</tt></blockquote>
+
+<p>To request a script:</p>
+
+<blockquote><tt>
+http://tweedledee.cs.drexel.edu/cgi-bin/<i>userId</i>/<i>script</i>
+</tt></blockquote>
+
+<h2>Copying Files into/out of Tweedledee</h2>
+
+<p>Log into one of the department machines, as you normally would.  Make a
+place somewhere to keep your files for this lab.</p>
+
+<p>Using <tt>scp</tt> to place files onto Tweedle:</p>
+<blockquote><tt>
+	scp hello.html tweedledee:public_html/<br>
+	scp hello.cgi tweedledee:cgi/
+</tt></blockquote>
+
+<p>using <tt>scp</tt> to retrieve files from Tweedle:</p>
+<blockquote><tt>
+	scp tweedledee:public_html/hello.html .<br>
+	scp tweedledee:cgi/hello.cgi .
+</tt></blockquote>
+
+<h2>Referring to Scripts From Within a Webpage</h2>
+
+<p>The path, from within the server, is:
+<tt>/cgi-bin/<i>userId</i>/<i>script</i></tt>.  E.g.:</p>
+
+<blockquote><tt>
+	&lt;form action='/cgi-bin/kschmidt/hello.pl'
+	  method='post' enctype='multipart/form-data'&gt;
+</tt></blockquote>
+
+<p>Please note, this setup is specific for running in the sandbox here on
+Drexel's CS Dept.'s servers.  The coding, however, is not.</p>
+
+<hr>
+<ul>
+	<p><font size='-1'><i>Please email any corrections, comments, concerns, or
+	criticisms to <a
+	href='mailto:kschmidt@cs.drexel.edu'>kschmidt@cs.drexel.edu</a>
+	</i></font></p>
+</font>
+</ul>
+
+<script><!--
+  footer()
+  //--></script>
+
+</body>
+</html>

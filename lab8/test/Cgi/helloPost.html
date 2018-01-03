@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'>
+<html>
+<head>
+	<meta http-equiv='content-language' content='en-us'>
+	<meta http-equiv='content-type' content='text/html; charset=iso-8859-1'>
+	<title>CGI Examples</title>
+	<meta name="Author" content="Your name">
+	<meta name="Publisher" content="Drexel University">
+	<meta http-equiv="Expires" content="no-expire">
+	<meta name="Keywords" content="Programming Techniques ">
+	<meta name="Description" content="CGI example">
+	<meta name="Pagetype" content="Example">
+	<meta name="Audience" content="All">
+	<link rel='shortcut icon' type='image/gif'
+    href='../images/drexel.gif'></link>
+</head>
+
+<body>
+
+<font size='+2'>
+
+<h1>A simple form, using Python's CGI module look at the values</h1>
+
+<p>Welcome.  Fill this in, click the Red button below.</p>
+</font>
+
+<form action='/~yourId/correctPath/hello.py'
+	method='post' enctype='multipart/form-data'> 
+
+	<p>First name: 
+	<input type='text' name='firstname'></p>
+
+	<ul>
+		<p>
+		<input type='radio' name='sex' value='male'> Male<br>
+		<input type='radio' name='sex' value='female'> Female<br>
+		<input type='radio' name='sex' value='ind'> Ya see, it's like this...
+		</p>
+	</ul>
+
+	<p>
+	I am (check all that apply):<br>
+	<ul>
+		<input type='checkbox' name='jason'>
+		A student of Jason's<br>
+		<input type='checkbox' name='kurt'>
+		A student of Kurt's<br>
+		<input type='checkbox' name='unsure'>
+		Which one is Kurt?<br>
+		<input type='checkbox' name='visitor'>
+		Just passing through
+	</ul>
+	</p>
+
+	<p>Birthday ( mm/dd ):
+	<input type='text' size='1' name='bMonth'> /
+	<input type='text' size='1' name='bDay'>
+	</p>
+
+	<p>Your password for Drexel email:
+	<input type='password' name='password'>
+	</p>
+
+	<input type='submit' value='Red'>
+
+</form> 
+
+</body>
+</html>

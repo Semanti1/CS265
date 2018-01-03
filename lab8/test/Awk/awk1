@@ -1,0 +1,15 @@
+#!/usr/bin/awk -f
+#
+# Kurt Schmidt
+# 3/03
+#
+# To be used w/some CSV.  Tray grades.csv
+#
+
+BEGIN { FS = "," }
+
+NR == 1 { cols = NF }
+
+NF != cols {
+	printf "%s (line %d) has incorrect number of fields = %d\n", $1, NR, NF
+}

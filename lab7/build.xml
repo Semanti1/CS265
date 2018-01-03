@@ -1,0 +1,66 @@
+<!--<?xml version="1.0" encoding="ISO-8859-1"?>-->
+
+        
+<project default="run" basedir='.'>
+        <description>
+                 compile *and* run
+        </description>
+
+        <target name="run" depends='prob1,prob2,prob3,prob4'/>
+
+        <target name="prob1" depends='compile'>
+                <java classname='prob1'>
+                        <classpath>
+                                <pathelement path="${classpath}" />
+                                <pathelement location="." />
+                        </classpath>
+                        <arg line='Simmy'/>
+                </java>
+        </target>
+
+        <target name="prob2" depends='compile'>
+                <java classname='prob2'>
+                        <classpath>
+                                <pathelement path="${classpath}" />
+                                <pathelement location="." />
+                        </classpath>
+                        <arg line='78'/>
+                        
+                </java>
+        </target>
+        
+        <target name="prob3" depends='compile'>
+                <java classname='prob3'>
+                        <classpath>
+                                <pathelement path="${classpath}" />
+                                <pathelement location="." />
+                        </classpath>
+                        <arg line='2017'/>
+                        
+                </java>
+        </target>
+        
+        <target name="prob4" depends='compile'>
+                <java classname='prob4'>
+                        <classpath>
+                                <pathelement path="${classpath}" />
+                                <pathelement location="." />
+                        </classpath>
+                        <arg line='2'/>
+                        
+                </java>
+        </target>
+
+        <target name="compile">
+                <javac includeantruntime="false" srcdir='./' includes='prob1.java,prob2.java,prob3.java,prob4.java'/>
+        </target>
+
+        <target name="clean">
+                <delete>
+                        <fileset dir="./">
+                                <include name='*.class'/>
+                        </fileset>
+                </delete>
+        </target>
+</project>
+
